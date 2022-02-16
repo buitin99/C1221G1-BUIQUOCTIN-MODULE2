@@ -22,16 +22,32 @@ public class Bai2DocSo {
                 System.out.print("thirteen");
             } else if (arr[0] == '1' && arr[1] == '5') {
                 System.out.print("fifteen");
+            } else if ((arr[0] == '1' && arr[1] == '4') || (arr[0] == '1' && arr[1] == '5') || (arr[0] == '1' && arr[1] == '6') || (arr[0] == '1' && arr[1] == '7') || (arr[0] == '1' && arr[1] == '8') || (arr[0] == '1' && arr[1] == '9')) {
+                donVi(arr[1]);
+                System.out.print("teen");
             } else {
                 chuc(arr[0]);
                 donVi(arr[1]);
             }
         } else if (arr.length == 3) {
-            tram(arr[0]);
-            chuc(arr[1]);
-            donVi(arr[2]);
+            if ((arr[1] == '1' && arr[2] == '1')) {
+                tram(arr[0]);
+                System.out.print(" eleven");
+            } else if (arr[1] == '1' && arr[2] == '2') {
+                tram(arr[0]);
+                System.out.println("twelve");
+            } else if (arr[1] == '1' && arr[2] == '3') {
+                tram(arr[0]);
+                System.out.println("thirteen");
+            } else if (arr[1] == '1' && arr[2] == '5') {
+                tram(arr[0]);
+                System.out.println("fifteen");
+            } else {
+                tram(arr[0]);
+                chuc(arr[1]);
+                donVi(arr[2]);
+            }
         }
-
     }
 
     public static void donVi(int a) {
@@ -69,31 +85,31 @@ public class Bai2DocSo {
     public static void chuc(int b) {
         switch (b) {
             case '1':
-                System.out.print("Ten");
+                System.out.print("Ten ");
                 break;
             case '2':
-                System.out.print("twenty");
+                System.out.print("twenty ");
                 break;
             case '3':
-                System.out.print("Thirty");
+                System.out.print("Thirty ");
                 break;
             case '4':
-                System.out.print("Forty");
+                System.out.print("Forty ");
                 break;
             case '5':
-                System.out.print("Fifty");
+                System.out.print("Fifty ");
                 break;
             case '6':
-                System.out.print("Sixty");
+                System.out.print("Sixty ");
                 break;
             case '7':
-                System.out.print("Seventy");
+                System.out.print("Seventy ");
                 break;
             case '8':
-                System.out.print("Eighty");
+                System.out.print("Eighty ");
                 break;
             case '9':
-                System.out.print("Ninety");
+                System.out.print("Ninety ");
                 break;
         }
     }
@@ -101,31 +117,31 @@ public class Bai2DocSo {
     public static void tram(int c) {
         switch (c) {
             case '1':
-                System.out.print("One Hundred");
+                System.out.print("One Hundred ");
                 break;
             case '2':
-                System.out.print("Two Hundred");
+                System.out.print("Two Hundred ");
                 break;
             case '3':
-                System.out.print("Three Hundred");
+                System.out.print("Three Hundred ");
                 break;
             case '4':
-                System.out.print("Four Hundred");
+                System.out.print("Four Hundred ");
                 break;
             case '5':
-                System.out.print("Five Hundred");
+                System.out.print("Five Hundred ");
                 break;
             case '6':
-                System.out.print("Six Hundred");
+                System.out.print("Six Hundred ");
                 break;
             case '7':
-                System.out.print("Seven Hundred");
+                System.out.print("Seven Hundred ");
                 break;
             case '8':
-                System.out.print("Eight Hundred");
+                System.out.print("Eight Hundred ");
                 break;
             case '9':
-                System.out.print("Nine Hundred");
+                System.out.print("Nine Hundred ");
                 break;
         }
     }
