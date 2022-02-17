@@ -13,7 +13,7 @@ public class Bai2SoNguyenTo {
         while (count<numbers){
             boolean flag = true;
             if (n < 2){
-                flag = false;
+               flag = false;
             }
             else
             {
@@ -26,7 +26,7 @@ public class Bai2SoNguyenTo {
             }
             if(flag == true){
                 count++;
-                System.out.println(n);
+                System.out.print(n + " ");
             }
             n++;
         }

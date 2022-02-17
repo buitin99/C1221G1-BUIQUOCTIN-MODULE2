@@ -17,7 +17,7 @@ public class Bai3SoNguyenTo {
                 }
             }
             if (flag == true) {
-                System.out.println(n);
+                System.out.print(n + " ");
             }
             n++;
         }
