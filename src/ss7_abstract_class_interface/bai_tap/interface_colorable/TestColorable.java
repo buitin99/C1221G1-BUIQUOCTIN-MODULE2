@@ -28,10 +28,8 @@ public class TestColorable {
         shapes[5] = square2;
 
         for (Shape shape : shapes) {
-            System.out.println(shape + " và màu sắc : " + shape.getColor());
+            System.out.println(shape);
         }
-
-
     }
 
 }

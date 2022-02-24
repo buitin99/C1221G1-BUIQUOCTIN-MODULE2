@@ -34,12 +34,13 @@ public class Circle extends Shape implements IColorable {
     }
 
     @Override
-    public String toString() {
-        return "Diện tích hình tròn là : " + getArea();
-    }
-
-    @Override
     public void howToColor() {
         System.out.println(" Color all four sides " + getColor());
     }
+
+    @Override
+    public String toString() {
+        return "Diện tích hình tròn là : " + getArea() + " màu sắc là : " +" Color all four sides " + getColor();
+    }
+
 }
