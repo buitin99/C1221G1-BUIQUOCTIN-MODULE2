@@ -1,7 +1,6 @@
 package ss7_abstract_class_interface.bai_tap.interface_colorable;
 
 import ss7_abstract_class_interface.bai_tap.interface_resizeable.IResizeable;
-import ss7_abstract_class_interface.bai_tap.interface_resizeable.Shape;
 
 public class Rectangle extends Shape implements IColorable {
     private double width = 1.0;
@@ -48,5 +47,10 @@ public class Rectangle extends Shape implements IColorable {
     @Override
     public void howToColor() {
         System.out.println(" Color all four sides " + getColor());
+    }
+
+    @Override
+    public String toString() {
+        return "Diện tích hình chữ nhật là : " + getArea();
     }
 }

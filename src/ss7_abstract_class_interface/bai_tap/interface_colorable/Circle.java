@@ -1,7 +1,6 @@
 package ss7_abstract_class_interface.bai_tap.interface_colorable;
 
 import ss7_abstract_class_interface.bai_tap.interface_resizeable.IResizeable;
-import ss7_abstract_class_interface.bai_tap.interface_resizeable.Shape;
 
 public class Circle extends Shape implements IColorable {
     private double radius = 1.0;
@@ -36,9 +35,7 @@ public class Circle extends Shape implements IColorable {
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                '}';
+        return "Diện tích hình tròn là : " + getArea();
     }
 
     @Override

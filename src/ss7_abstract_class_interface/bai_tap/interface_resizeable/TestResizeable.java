@@ -43,9 +43,8 @@ public class TestResizeable {
         rectangle2.resizeable(Math.random() * 100 + 1);
         square1.resizeable(Math.random() * 100 + 1);
         square2.resizeable(Math.random() * 100 + 1);
-        for (Shape a : shapes) {
-            System.out.println(a);
+        for (Shape shape : shapes) {
+            System.out.println(shape);
         }
-
     }
 }
