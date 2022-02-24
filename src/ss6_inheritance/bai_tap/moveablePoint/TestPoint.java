@@ -1,4 +1,4 @@
-package ss6_inheritance.moveablePoint;
+package ss6_inheritance.bai_tap.moveablePoint;
 
 public class TestPoint {
     public static void main(String[] args) {

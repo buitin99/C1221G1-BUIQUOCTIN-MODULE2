@@ -1,17 +1,17 @@
-package ss6_inheritance.moveablePoint;
+package ss6_inheritance.bai_tap.point;
 
 import java.util.Arrays;
 
-public class Point {
+public class Point2D {
     public float x = 0.0f;
     public float y = 0.0f;
 
-    public Point(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Point2D() {
     }
 
-    public Point() {
+    public Point2D(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
     public float getX() {
@@ -42,7 +42,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Point2D{" +
                 "x=" + getX() +
                 ", y=" + getY() +
                 '}';

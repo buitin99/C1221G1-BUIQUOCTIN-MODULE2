@@ -1,4 +1,4 @@
-package ss6_inheritance.point;
+package ss6_inheritance.bai_tap.point;
 
 import java.util.Scanner;
 
