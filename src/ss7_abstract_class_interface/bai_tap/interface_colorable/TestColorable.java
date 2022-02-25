@@ -28,7 +28,14 @@ public class TestColorable {
         shapes[5] = square2;
 
         for (Shape shape : shapes) {
-            System.out.println(shape);
+            if (shape instanceof Square || shape instanceof Rectangle) {
+                System.out.println(shape);
+                shape.howToColor();
+            } else {
+                System.out.println(shape);
+            }
+
+
         }
     }
 

@@ -31,6 +31,6 @@ public class Square extends Shape implements IColorable {
 
     @Override
     public String toString() {
-        return "Diện tích hình vuông là : " + getArea() + " màu sắc là : " + " Color all four sides " + getColor();
+        return "Diện tích hình vuông là : " + getArea();
     }
 }
