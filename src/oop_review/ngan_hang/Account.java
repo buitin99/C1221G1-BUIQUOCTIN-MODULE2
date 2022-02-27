@@ -24,7 +24,12 @@ public class Account extends NganHang {
     }
 
     public void setSoTienNap(double soTienNap) {
-        this.soTienNap = soTienNap;
+        if (soTienNap < 0){
+            System.out.println("Số tiền gửi không hợp lệ!");
+        }else
+        {
+            this.soTienNap = soTienNap;
+        }
     }
 
     public double getSoTienRut() {
@@ -32,7 +37,12 @@ public class Account extends NganHang {
     }
 
     public void setSoTienRut(double soTienRut) {
-        this.soTienRut = soTienRut;
+        if (soTienRut >= 50){
+            System.out.println("Bạn không thể rút quá 50");
+        }else
+        {
+            this.soTienRut = soTienRut;
+        }
     }
 
     public double getPhiRutTien() {
