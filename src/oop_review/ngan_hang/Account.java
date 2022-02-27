@@ -1,4 +1,5 @@
 package oop_review.ngan_hang;
+import java.util.Scanner;
 
 public class Account extends NganHang {
     private static final double LAISUAT = 0.035;
@@ -6,6 +7,7 @@ public class Account extends NganHang {
     private double soTienRut;
     private double phiRutTien = 0.2;
     private double soTienTrongTaiKhoan = 50;
+    private double kiemTra;
 
     public Account() {
     }
@@ -23,13 +25,15 @@ public class Account extends NganHang {
         return soTienNap;
     }
 
+    Scanner scanner = new Scanner(System.in);
+
     public void setSoTienNap(double soTienNap) {
-        if (soTienNap < 0){
-            System.out.println("Số tiền gửi không hợp lệ!");
-        }else
-        {
-            this.soTienNap = soTienNap;
-        }
+       do{
+           System.out.println("Nhập không hợp lệ !");
+           soTienNap = scanner.nextDouble();
+       }
+       while (soTienNap < 0 );
+       this.soTienNap = soTienNap;
     }
 
     public double getSoTienRut() {
@@ -37,12 +41,12 @@ public class Account extends NganHang {
     }
 
     public void setSoTienRut(double soTienRut) {
-        if (soTienRut >= 50){
-            System.out.println("Bạn không thể rút quá 50");
-        }else
-        {
-            this.soTienRut = soTienRut;
+        do{
+            System.out.println("Nhập không hợp lệ !");
+            soTienRut = scanner.nextDouble();
         }
+        while (soTienRut >=50);
+        this.soTienRut = soTienRut;
     }
 
     public double getPhiRutTien() {
