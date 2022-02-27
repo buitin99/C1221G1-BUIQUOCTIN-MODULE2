@@ -1,6 +1,4 @@
-package ngan_hang;
-
-import oop_review.nhap_xuat_xe.Vehicle;
+package oop_review.ngan_hang;
 
 import java.util.Scanner;
 
@@ -55,7 +53,18 @@ public class TestNganHang {
                     System.out.println(account2.toString());
                     break;
                 case 3:
-
+                    Account account3 = new Account();
+                    System.out.println("Nhập thông tin tài khoản");
+                    System.out.println("Nhập số tài khoản : ");
+                    account3.setSoTaiKhoan(scanner.nextLong());
+                    System.out.println("Nhập tên tài khoản : ");
+                    account3.setTenTaiKhoan(scanner.next());
+                    System.out.println("Nhập số tiền muồn gửi ");
+                    account3.setSoTienNap(scanner.nextDouble());
+                    account3.guiTien();
+                    account3.daoHan();
+                    System.out.println(account3.toString());
+                    break;
                 default:
                     flag = false;
                     break;

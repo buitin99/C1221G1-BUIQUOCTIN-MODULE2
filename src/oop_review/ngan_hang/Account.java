@@ -1,4 +1,4 @@
-package ngan_hang;
+package oop_review.ngan_hang;
 
 public class Account extends NganHang {
     private static final double LAISUAT = 0.035;
@@ -59,6 +59,10 @@ public class Account extends NganHang {
         return soTienTrongTaiKhoan -= (soTienRut + phiRutTien);
     }
 
+    public double daoHan(){
+        return soTienTrongTaiKhoan = soTienTrongTaiKhoan + soTienNap*LAISUAT;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -69,3 +73,4 @@ public class Account extends NganHang {
                 '}';
     }
 }
+
