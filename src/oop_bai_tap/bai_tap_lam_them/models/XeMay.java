@@ -7,4 +7,15 @@ public class XeMay extends Xe {
         super(bienSoXe, tenHang, namSanXuat, chuSoHuu);
         this.congSuat = congSuat;
     }
+
+    public XeMay() {
+    }
+
+    public double getCongSuat() {
+        return congSuat;
+    }
+
+    public void setCongSuat(double congSuat) {
+        this.congSuat = congSuat;
+    }
 }

@@ -8,5 +8,15 @@ public class XeTai extends Xe {
         this.trongTai = trongTai;
     }
 
+    public XeTai() {
 
+    }
+
+    public double getTrongTai() {
+        return trongTai;
+    }
+
+    public void setTrongTai(double trongTai) {
+        this.trongTai = trongTai;
+    }
 }

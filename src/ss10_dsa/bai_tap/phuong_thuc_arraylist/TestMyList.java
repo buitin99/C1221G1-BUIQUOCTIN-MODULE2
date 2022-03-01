@@ -54,13 +54,7 @@ public class TestMyList {
             newMyList = studentMyList.clone();
             Student student = newMyList.remove(0);
             System.out.println(student.getName());
-//
-//            for (int i = 0; i < studentMyList.size(); i++){
-//                Student student = (Student) studentMyList.elements[i];
-//                System.out.println(student.getId());
-//                System.out.println(student.getName());
-//            }
-
+            System.out.println(newMyList.indexOf(c));
         }
     }
 }

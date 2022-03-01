@@ -10,4 +10,23 @@ public class Oto extends Xe {
         this.soCho = soCho;
         this.kieuXe = kieuXe;
     }
+
+    public Oto() {
+    }
+
+    public int getSoCho() {
+        return soCho;
+    }
+
+    public void setSoCho(int soCho) {
+        this.soCho = soCho;
+    }
+
+    public String getKieuXe() {
+        return kieuXe;
+    }
+
+    public void setKieuXe(String kieuXe) {
+        this.kieuXe = kieuXe;
+    }
 }
