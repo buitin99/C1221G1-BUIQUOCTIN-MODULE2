@@ -19,4 +19,10 @@ public class XeTai extends Xe {
     public void setTrongTai(double trongTai) {
         this.trongTai = trongTai;
     }
+
+    @Override
+    public String toString() {
+        return "{ biển số xe : " + getBienSoXe() + " , " + " tên hãng : " + getTenHang() + " , " + " năm sản xuất : " + getNamSanXuat() + " , " + " chủ sở hữu : " + getChuSoHuu() + " , " + " trọng tải : " + getTrongTai() + "}" ;
+    }
 }
+

@@ -18,4 +18,9 @@ public class XeMay extends Xe {
     public void setCongSuat(double congSuat) {
         this.congSuat = congSuat;
     }
+
+    @Override
+    public String toString() {
+        return "{ biển số xe : " + getBienSoXe() + " , " + " tên hãng : " + getTenHang() + " , " + " năm sản xuất : " + getNamSanXuat() + " , " + " chủ sở hữu : " + getChuSoHuu() + " , " + "công suất : " + getCongSuat() + "}" ;
+    }
 }

@@ -29,7 +29,7 @@ public class TestMyList {
             this.name = name;
         }
 
-        public static void main(String[] args) throws IllegalAccessException {
+        public static void main(String[] args) {
             Student a = new Student(1,"Tin1");
             Student b = new Student(2,"Tin2");
             Student c = new Student(3,"Tin3");

@@ -1,10 +1,18 @@
 package oop_bai_tap.bai_tap_lam_them.models;
 
+import s12_java_collection_framework.bai_tap.arraylist_linkedlist.Product;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public abstract class Xe {
     private String bienSoXe;
     private String tenHang;
     private int namSanXuat;
     private String chuSoHuu;
+
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<XeTai> xeTaiArrayList1 = new ArrayList<>();
 
     public Xe() {
     }
@@ -47,4 +55,6 @@ public abstract class Xe {
     public void setChuSoHuu(String chuSoHuu) {
         this.chuSoHuu = chuSoHuu;
     }
+
+
 }

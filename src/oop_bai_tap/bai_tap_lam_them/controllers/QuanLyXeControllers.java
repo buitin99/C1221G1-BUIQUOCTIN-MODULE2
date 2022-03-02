@@ -1,18 +1,21 @@
 package oop_bai_tap.bai_tap_lam_them.controllers;
 
 import oop_bai_tap.bai_tap_lam_them.models.Oto;
-import oop_bai_tap.bai_tap_lam_them.models.Xe;
 import oop_bai_tap.bai_tap_lam_them.models.XeMay;
 import oop_bai_tap.bai_tap_lam_them.models.XeTai;
 
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class QuanLyXeControllers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        ArrayList<Oto> otoArrayList = new ArrayList<Oto>(10);
+        ArrayList<XeTai> xeTaiArrayList = new ArrayList<XeTai>(10);
+        ArrayList<XeMay> xeMayArrayList = new ArrayList<XeMay>(10);
         boolean flag = true;
         do {
-            System.out.println("Main Menu: " +
+            System.out.println("Main Menu:\n" +
                     "1. Thêm mới phương tiện!\n" +
                     "2. Hiện thị phương tiện!\n" +
                     "3. Xóa phương tiện!\n" +
@@ -31,49 +34,49 @@ public abstract class QuanLyXeControllers {
                         case 1:
                             //thêm xe tải
                             System.out.println("Thêm xe tải");
-                            XeTai xeTai = new XeTai();
                             System.out.println("Nhập biển số!");
-                            xeTai.setBienSoXe(scanner.next());
+                            String bienSoXeTai = scanner.next();
                             System.out.println("Nhập hãng xe!");
-                            xeTai.setTenHang(scanner.next());
+                            String tenHangTai = scanner.next();
                             System.out.println("Nhập năm sản xuất!");
-                            xeTai.setNamSanXuat(scanner.nextInt());
+                            int namSanXuatTai = scanner.nextInt();
                             System.out.println("Nhập chủ sở hữu!");
-                            xeTai.setChuSoHuu(scanner.next());
+                            String chuSoHuuTai = scanner.next();
                             System.out.println("Nhập trọng tải!");
-                            xeTai.setTrongTai(scanner.nextDouble());
+                            double trongTai = scanner.nextDouble();
+                            xeTaiArrayList.add(new XeTai(bienSoXeTai, tenHangTai, namSanXuatTai, chuSoHuuTai, trongTai));
                             break;
                         case 2:
                             //thêm xe ô tô
                             System.out.println("Thêm xe ô tô");
-                            Oto oto = new Oto();
                             System.out.println("Nhập biển số!");
-                            oto.setBienSoXe(scanner.next());
+                            String bienSoXeOto = scanner.next();
                             System.out.println("Nhập hãng xe!");
-                            oto.setTenHang(scanner.next());
+                            String tenHangOto = scanner.next();
                             System.out.println("Nhập năm sản xuất!");
-                            oto.setNamSanXuat(scanner.nextInt());
+                            int namSanXuatOto = scanner.nextInt();
                             System.out.println("Nhập chủ sở hữu!");
-                            oto.setChuSoHuu(scanner.next());
+                            String chuSoHuuOto = scanner.next();
                             System.out.println("Nhập số chỗ!");
-                            oto.setSoCho(scanner.nextInt());
+                            int soChoOto = scanner.nextInt();
                             System.out.println("Nhập kiểu xe!");
-                            oto.setKieuXe(scanner.next());
+                            String kieuXeOto = scanner.next();
+                            otoArrayList.add(new Oto(bienSoXeOto, tenHangOto, namSanXuatOto, chuSoHuuOto, soChoOto, kieuXeOto));
                             break;
                         case 3:
                             //thêm xe máy
                             System.out.println("Thêm xe máy");
-                            XeMay xeMay = new XeMay();
                             System.out.println("Nhập biển số!");
-                            xeMay.setBienSoXe(scanner.next());
+                            String bienSoXeMay = scanner.next();
                             System.out.println("Nhập hãng xe!");
-                            xeMay.setTenHang(scanner.next());
+                            String hangXeMay = scanner.next();
                             System.out.println("Nhập năm sản xuất!");
-                            xeMay.setNamSanXuat(scanner.nextInt());
+                            int namSanXuatMay = scanner.nextInt();
                             System.out.println("Nhập chủ sở hữu!");
-                            xeMay.setChuSoHuu(scanner.next());
+                            String chuSoHuuMay = scanner.next();
                             System.out.println("Nhập công suất!");
-                            xeMay.setCongSuat(scanner.nextInt());
+                            double congXuatMay = scanner.nextDouble();
+                            xeMayArrayList.add(new XeMay(bienSoXeMay, hangXeMay, namSanXuatMay, chuSoHuuMay, congXuatMay));
                             break;
                         default:
                             flag = false;
@@ -81,31 +84,86 @@ public abstract class QuanLyXeControllers {
                     break;
                 case 2:
                     //chức năng hiện thi
-                    System.out.println("1. hiện thị xe !");
-                    System.out.println("2. hiện thị xe tải !");
-                    System.out.println("3. hiện thị xe ô tô !");
-                    System.out.println("4. hiện thị xe máy !");
+                    System.out.println("hiện thị xe !");
+                    System.out.println("1. hiện thị xe tải !");
+                    System.out.println("2. hiện thị xe ô tô !");
+                    System.out.println("3. hiện thị xe máy !");
                     int chooseMenu2 = scanner.nextInt();
                     switch (chooseMenu2) {
                         case 1:
                             System.out.println("Hiện thị xe tải!");
+                            for (XeTai tai : xeTaiArrayList) {
+                                System.out.println(tai);
+                            }
                             break;
                         case 2:
                             System.out.println("Hiện thị xe ô tô");
+                            for (Oto oto : otoArrayList) {
+                                System.out.println(oto);
+                            }
                             break;
                         case 3:
                             System.out.println("Hiện thị xe máy");
+                            for (XeMay may : xeMayArrayList) {
+                                System.out.println(may);
+                            }
                             break;
                     }
                     break;
                 case 3:
                     //chức năng thêm xóa phương tiện
-                    System.out.println("delete");
+                    System.out.println("xóa xe !");
+                    System.out.println("1. xóa xe tải !");
+                    System.out.println("2. xóa xe ô tô !");
+                    System.out.println("3. xóa xe máy !");
+                    int chooseMenu3 = scanner.nextInt();
+                    switch (chooseMenu3) {
+                        case 1:
+                            System.out.println("Xóa xe tải!");
+                            for (XeTai tai : xeTaiArrayList) {
+                                System.out.println(tai);
+                            }
+                            System.out.println("Nhập biển số muốn xóa!");
+                            String xoaBienSo = scanner.next();
+                            for (int i = 0; i < xeTaiArrayList.size(); i++) {
+                                if (xeTaiArrayList.get(i).getBienSoXe() == xoaBienSo) {
+                                    xeTaiArrayList.remove(xeTaiArrayList.get(i));
+                                }
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Xóa xe ô tô!");
+                            for (Oto oto : otoArrayList) {
+                                System.out.println(oto);
+                            }
+                            System.out.println("Nhập biển số muốn xóa!");
+                            String xoaBienSoOto = scanner.next();
+                            for (int i = 0; i < otoArrayList.size(); i++) {
+                                if (otoArrayList.get(i).getBienSoXe() == xoaBienSoOto) {
+                                    otoArrayList.remove(otoArrayList.get(i));
+                                }
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Xóa xe máy!");
+                            for (XeMay may : xeMayArrayList) {
+                                System.out.println(may);
+                            }
+                            System.out.println("Nhập biển số muốn xóa!");
+                            String xoaBienSoMay = scanner.next();
+                            for (int i = 0; i < xeMayArrayList.size(); i++) {
+                                if (xeMayArrayList.get(i).getBienSoXe() == xoaBienSoMay) {
+                                    xeMayArrayList.remove(xeMayArrayList.get(i));
+                                }
+                            }
+                            break;
+
+                    }
                     break;
                 default:
                     flag = false;
             }
         } while (flag);
     }
-
 }
+

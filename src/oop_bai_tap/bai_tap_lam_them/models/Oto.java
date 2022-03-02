@@ -14,6 +14,9 @@ public class Oto extends Xe {
     public Oto() {
     }
 
+    public Oto(Oto oto) {
+    }
+
     public int getSoCho() {
         return soCho;
     }
@@ -28,5 +31,10 @@ public class Oto extends Xe {
 
     public void setKieuXe(String kieuXe) {
         this.kieuXe = kieuXe;
+    }
+
+    @Override
+    public String toString() {
+        return "{ biển số xe : " + getBienSoXe() + " , " + " tên hãng : " + getTenHang() + " , " + " năm sản xuất : " + getNamSanXuat() + " , " + " chủ sở hữu : " + getChuSoHuu() + " , " + " số chỗ : " + getSoCho() + " , " + "kiểu xe : " + getKieuXe() + "}" ;
     }
 }
