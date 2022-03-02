@@ -1,4 +1,5 @@
 package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
+
 import java.util.*;
 
 public class Product implements Comparable<Product> {
@@ -98,10 +99,10 @@ public class Product implements Comparable<Product> {
             }
         }
     }
-    
+
     public static void arrangeUp() {
         Collections.sort(productArrayList);
-        for (Product element: productArrayList) {
+        for (Product element : productArrayList) {
             System.out.println("id" + element.getId() + "tên sản phẩm: " + element.getTenSanPham() + "giá tiền: " + element.getGiaTien() + "số lượng :" + element.getSoLuong());
         }
     }
@@ -118,12 +119,11 @@ public class Product implements Comparable<Product> {
 
     @Override
     public int compareTo(Product o) {
-        if (this.getGiaTien() == o.giaTien){
+        if (this.getGiaTien() == o.giaTien) {
             return 0;
-        }else if (this.getGiaTien() > o.giaTien){
+        } else if (this.getGiaTien() > o.giaTien) {
             return 1;
-        }else
-        {
+        } else {
             return -1;
         }
     }

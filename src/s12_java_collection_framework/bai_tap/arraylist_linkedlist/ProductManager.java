@@ -15,7 +15,7 @@ public class ProductManager {
                     "3. Hiện thị sản phẩm\n" +
                     "4. Tìm kiếm sản phẩm\n" +
                     "5. Sắp xếp sản phẩm\n" +
-                    "5. Thoát\n");
+                    "6. Thoát\n");
             System.out.println("Chọn chức năng");
             int chooseMenu = scanner.nextInt();
             Product product = new Product();
