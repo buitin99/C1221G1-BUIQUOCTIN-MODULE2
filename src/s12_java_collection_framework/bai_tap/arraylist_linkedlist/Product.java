@@ -99,13 +99,11 @@ public class Product implements Comparable<Product> {
         }
     }
     
-    public void arrangeUp() {
-
-    }
-
-
-    public void arrangeDown() {
-
+    public static void arrangeUp() {
+        Collections.sort(productArrayList);
+        for (Product element: productArrayList) {
+            System.out.println("id" + element.getId() + "tên sản phẩm: " + element.getTenSanPham() + "giá tiền: " + element.getGiaTien() + "số lượng :" + element.getSoLuong());
+        }
     }
 
     @Override
@@ -123,10 +121,10 @@ public class Product implements Comparable<Product> {
         if (this.getGiaTien() == o.giaTien){
             return 0;
         }else if (this.getGiaTien() > o.giaTien){
-            return -1;
+            return 1;
         }else
         {
-            return 1;
+            return -1;
         }
     }
 }

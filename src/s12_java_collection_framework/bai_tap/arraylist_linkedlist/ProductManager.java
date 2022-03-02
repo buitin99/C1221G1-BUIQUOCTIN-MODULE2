@@ -38,7 +38,7 @@ public class ProductManager {
                     break;
                 case 5:
                     System.out.println("Sắp xếp sản phẩm!");
-
+                    Product.arrangeUp();
                 default:
                     flag = false;
                     break;
