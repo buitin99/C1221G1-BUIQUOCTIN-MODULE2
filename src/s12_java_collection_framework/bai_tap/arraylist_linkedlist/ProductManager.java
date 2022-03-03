@@ -1,48 +1,61 @@
 package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
 
-import oop_review.ngan_hang.Account;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class ProductManager {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean flag = true;
-        do {
-            System.out.println("Main Menu:\n" +
-                    "1. Thêm sản phẩm\n" +
-                    "2. Xóa sản phẩm\n" +
-                    "3. Hiện thị sản phẩm\n" +
-                    "4. Tìm kiếm sản phẩm\n" +
-                    "5. Sắp xếp sản phẩm\n" +
-                    "6. Thoát\n");
-            System.out.println("Chọn chức năng");
-            int chooseMenu = scanner.nextInt();
-            Product product = new Product();
-            switch (chooseMenu) {
-                case 1:
-                    System.out.println("Thêm sản phẩm!");
-                    Product.add();
-                    break;
-                case 2:
-                    System.out.println("Xóa sản phẩm theo id!");
-                    Product.delete();
-                    break;
-                case 3:
-                    System.out.println("Hiển thị sản phẩm!");
-                    Product.display();
-                    break;
-                case 4:
-                    System.out.println("Tìm kiếm sản phẩm");
-                    Product.search();
-                    break;
-                case 5:
-                    System.out.println("Sắp xếp sản phẩm!");
-                    Product.arrangeUp();
-                default:
-                    flag = false;
-                    break;
+public class ProductManager  {
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<Product>  products = new ArrayList<>();
+
+        public void add(){
+            System.out.println("Nhập id!");
+            int id = scanner.nextInt();
+            System.out.println("Nhập tên sản phẩm!");
+            String tenSP = scanner.next();
+            System.out.println("Nhập giá tiền!");
+            double tien = scanner.nextDouble();
+            System.out.println("Nhập số lượng!");
+            int soLuong = scanner.nextInt();
+            Product product = new Product(id, tenSP, tien, soLuong);
+            products.add(product);
+        }
+
+        public void edit() {
+
+        }
+
+        public void delete() {
+            display();
+            System.out.println("Nhập id cần xóa!");
+            int idDelete = scanner.nextInt();
+            for (int i = 0; i < products.size(); i++) {
+                if (products.get(i).getId() == idDelete) {
+                    products.remove(products.get(i));
+                }
             }
-        } while (flag);
-    }
+        }
+
+        public void display() {
+            for (int i = 0; i < products.size(); i++) {
+                System.out.println((1 + i) + "." + products.get(i));
+            }
+        }
+
+        public void search() {
+            System.out.println("Nhập tên sản phẩm cần tìm kiếm!");
+            String timTenSP = scanner.next();
+            boolean flag = false;
+            for (int i = 0; i < products.size(); i++) {
+                if (products.get(i).getTenSanPham().equals(timTenSP)) {
+                    flag = true;
+                    if (flag){
+                        System.out.println("Sản phẩm bạn tìm kiếm hiện có!");
+                    }else
+                    {
+                        System.out.println("Sản phẩm bạn tìm kiếm hiện không!");
+                    }
+                }
+            }
+        }
 }
