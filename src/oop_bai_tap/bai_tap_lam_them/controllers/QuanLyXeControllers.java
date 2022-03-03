@@ -126,7 +126,7 @@ public abstract class QuanLyXeControllers {
                             System.out.println("Nhập biển số muốn xóa!");
                             String xoaBienSo = scanner.next();
                             for (int i = 0; i < xeTaiArrayList.size(); i++) {
-                                if (xeTaiArrayList.get(i).getBienSoXe() == xoaBienSo) {
+                                if (xeTaiArrayList.get(i).getBienSoXe().equals(xoaBienSo)) {
                                     xeTaiArrayList.remove(xeTaiArrayList.get(i));
                                 }
                             }
@@ -139,7 +139,7 @@ public abstract class QuanLyXeControllers {
                             System.out.println("Nhập biển số muốn xóa!");
                             String xoaBienSoOto = scanner.next();
                             for (int i = 0; i < otoArrayList.size(); i++) {
-                                if (otoArrayList.get(i).getBienSoXe() == xoaBienSoOto) {
+                                if (otoArrayList.get(i).getBienSoXe().equals(xoaBienSoOto)) {
                                     otoArrayList.remove(otoArrayList.get(i));
                                 }
                             }
@@ -152,12 +152,11 @@ public abstract class QuanLyXeControllers {
                             System.out.println("Nhập biển số muốn xóa!");
                             String xoaBienSoMay = scanner.next();
                             for (int i = 0; i < xeMayArrayList.size(); i++) {
-                                if (xeMayArrayList.get(i).getBienSoXe() == xoaBienSoMay) {
+                                if (xeMayArrayList.get(i).getBienSoXe().equals(xoaBienSoMay)) {
                                     xeMayArrayList.remove(xeMayArrayList.get(i));
                                 }
                             }
                             break;
-
                     }
                     break;
                 default:
