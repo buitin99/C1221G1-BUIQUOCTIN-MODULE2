@@ -62,13 +62,14 @@ public class ProductManager {
             for (int i = 0; i < products.size(); i++) {
                 if (products.get(i).getTenSanPham().equals(timTenSP)) {
                     flag = true;
+                }
                     if (flag){
                         System.out.println("Sản phẩm bạn tìm kiếm hiện có!");
                     }else
                     {
                         System.out.println("Sản phẩm bạn tìm kiếm hiện không!");
                     }
-                }
+
             }
         }
         public void sapXepGiam(){
