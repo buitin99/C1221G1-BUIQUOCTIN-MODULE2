@@ -1,4 +1,6 @@
 package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 public class TestProducts {
     public static void main(String[] args) {
@@ -11,10 +13,11 @@ public class TestProducts {
                     "2. Xóa sản phẩm\n" +
                     "3. Hiện thị sản phẩm\n" +
                     "4. Tìm kiếm sản phẩm\n" +
-                    "5. Sắp xếp sản phẩm\n" +
-                    "6. Thoát\n");
-            System.out.println("Chọn chức năng");
-            int chooseMenu = scanner.nextInt();
+                    "5. Sắp xếp sản phẩm tăng theo giá\n" +
+                    "6. Sắp xếp sản phẩm\n" +
+                    "7. Thoát\n");
+            System.out.print("Chọn chức năng");
+            int chooseMenu = Integer.parseInt(scanner.nextLine());
             switch (chooseMenu) {
                 case 1:
                     System.out.println("Thêm sản phẩm!");
@@ -33,7 +36,12 @@ public class TestProducts {
                     product.search();
                     break;
                 case 5:
-                    System.out.println("Sắp xếp sản phẩm!");
+                    System.out.println("Sắp xếp sản phẩm tăng!");
+                    product.sapXepTang();
+                    break;
+                case 6:
+                    System.out.println("Sắp xếp sản phẩm giảm!");
+                    product.sapXepGiam();
                 default:
                     flag = false;
                     break;

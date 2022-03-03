@@ -2,17 +2,17 @@ package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
 
 import java.util.*;
 import java.util.Scanner;
-public class Product{
+public class Product implements Comparable<Product>, Comparator<Product>{
     private int id;
     private String tenSanPham;
-    private double giaTien;
+    private int giaTien;
     private int soLuong;
 
     Scanner scanner = new Scanner(System.in);
     public Product() {
     }
 
-    public Product(int id, String tenSanPham, double giaTien, int soLuong) {
+    public Product(int id, String tenSanPham, int giaTien, int soLuong) {
         this.id = id;
         this.tenSanPham = tenSanPham;
         this.giaTien = giaTien;
@@ -35,11 +35,11 @@ public class Product{
         this.tenSanPham = tenSanPham;
     }
 
-    public double getGiaTien() {
+    public int getGiaTien() {
         return giaTien;
     }
 
-    public void setGiaTien(double giaTien) {
+    public void setGiaTien(int giaTien) {
         this.giaTien = giaTien;
     }
 
@@ -64,4 +64,20 @@ public class Product{
                 '}';
     }
 
+    @Override
+    public int compareTo(Product o) {
+        if (this.giaTien == o.giaTien){
+            return 0;
+        }else if (this.giaTien > o.giaTien){
+            return -1;
+        }else
+        {
+            return 1;
+        }
+    }
+
+    @Override
+    public int compare(Product o1, Product o2) {
+        return o1.getGiaTien()-o2.getGiaTien();
+    }
 }
