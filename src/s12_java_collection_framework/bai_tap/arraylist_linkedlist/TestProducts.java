@@ -14,8 +14,9 @@ public class TestProducts {
                     "3. Hiện thị sản phẩm\n" +
                     "4. Tìm kiếm sản phẩm\n" +
                     "5. Sắp xếp sản phẩm tăng theo giá\n" +
-                    "6. Sắp xếp sản phẩm\n" +
-                    "7. Thoát\n");
+                    "6. Sắp xếp sản phẩm giảm theo giá\n" +
+                    "7. Sửa sản phẩm\n" +
+                    "8. Thoát\n");
             System.out.print("Chọn chức năng");
             int chooseMenu = Integer.parseInt(scanner.nextLine());
             switch (chooseMenu) {
@@ -42,6 +43,11 @@ public class TestProducts {
                 case 6:
                     System.out.println("Sắp xếp sản phẩm giảm!");
                     product.sapXepGiam();
+                    break;
+                case 7:
+                    System.out.println("Sửa sản phẩm!");
+                    product.edit();
+                    break;
                 default:
                     flag = false;
                     break;

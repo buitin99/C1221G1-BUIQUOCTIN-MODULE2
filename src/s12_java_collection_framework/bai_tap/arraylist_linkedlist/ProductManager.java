@@ -23,7 +23,19 @@ public class ProductManager {
         }
 
         public void edit() {
-
+            display();
+            System.out.println("Nhập id cần sửa sản phẩm!");
+            int idEdit = Integer.parseInt(scanner.nextLine());
+            for (int i = 0; i < products.size(); i++){
+                if (products.get(i).getId() == idEdit){
+                    System.out.println("Sửa tên sản phẩm!");
+                    products.get(i).setTenSanPham(scanner.nextLine());
+                    System.out.println("Sửa giá sản phẩm!");
+                    products.get(i).setGiaTien(scanner.nextInt());
+                    System.out.println("Sửa số lượng sản phẩm!");
+                    products.get(i).setSoLuong(scanner.nextInt());
+                }
+            }
         }
 
         public void delete() {
@@ -39,7 +51,7 @@ public class ProductManager {
 
         public void display() {
             for (int i = 0; i < products.size(); i++) {
-                System.out.println((1 + i) + "." + products.get(i));
+                System.out.println((1 + i) + "."+ "ID:" + products.get(i).getId() + "," + "Tên sản phẩm:"+ products.get(i).getTenSanPham() + "," +"Giá sản phẩm:"+ products.get(i).getGiaTien() + "," +"Số lượng:"+ products.get(i).getSoLuong());
             }
         }
 
