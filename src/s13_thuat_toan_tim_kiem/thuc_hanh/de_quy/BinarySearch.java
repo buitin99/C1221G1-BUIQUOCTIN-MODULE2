@@ -1,4 +1,4 @@
-package s13_thuat_toan_sap_xep.thuc_hanh.de_quy;
+package s13_thuat_toan_tim_kiem.thuc_hanh.de_quy;
 
 public class BinarySearch {
     static int[] list = {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79};

@@ -1,4 +1,4 @@
-package s13_thuat_toan_sap_xep.bai_tap.tim_kiem;
+package s13_thuat_toan_tim_kiem.bai_tap.tim_kiem;
 
 import java.util.LinkedList;
 import java.util.Scanner;

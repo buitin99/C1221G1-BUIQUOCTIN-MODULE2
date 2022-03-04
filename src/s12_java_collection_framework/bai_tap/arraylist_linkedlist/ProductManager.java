@@ -65,6 +65,7 @@ public class ProductManager {
                 }
                     if (flag){
                         System.out.println("Sản phẩm bạn tìm kiếm hiện có!");
+                        System.out.println("ID: " + products.get(i).getId() + "," + "Tên sản phẩm:" + products.get(i).getTenSanPham() +"," + "Giá sản phẩm:" + products.get(i).getGiaTien() + "," + "Số lượng" + products.get(i).getSoLuong());
                     }else
                     {
                         System.out.println("Sản phẩm bạn tìm kiếm hiện không!");
