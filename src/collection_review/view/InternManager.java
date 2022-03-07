@@ -25,6 +25,9 @@ public class InternManager {
     }
 
     public void addIn(){
+        boolean flag = true;
+        boolean flag1 = true;
+        boolean flag2 = true;
         System.out.println("Intern candidate!");
         System.out.println("Enter Candidate id!");
         int inId = Integer.parseInt(scanner.nextLine());
@@ -32,14 +35,36 @@ public class InternManager {
         String infName = scanner.nextLine();
         System.out.println("Enter Last name");
         String inlName = scanner.nextLine();
-        System.out.println("Enter Birth date!");
-        int inbDate = Integer.parseInt(scanner.nextLine());
+        String inbD;
+        do {
+            System.out.println("Enter Birth date (Please enter YYYY!)");
+            inbD = scanner.nextLine();
+            if (inbD.length() == 4) {
+                flag = false;
+            }
+        } while (flag);
+        String inbDate = inbD;
         System.out.println("Enter Address!");
         String inAdd = scanner.nextLine();
-        System.out.println("Enter phone number!");
-        String inPhone = scanner.nextLine();
-        System.out.println("Enter email!");
-        String inEmail = scanner.nextLine();
+        String inP;
+        do {
+            System.out.println("Enter phone number (Please enter more than 10 characters!)");
+            inP = scanner.nextLine();
+            if (inP.length() >= 10) {
+                flag1 = false;
+            }
+        } while (flag1);
+        String inPhone = inP;
+        String inE;
+        do {
+            System.out.println("Enter email (Please enter name_email@gmail.com!)");
+            inE = scanner.nextLine();
+            if (inE.contains("@gmail.com")){
+                flag2 = false;
+            }
+        }
+        while (flag2);
+        String inEmail = inE;
         System.out.println("Enter Majors!");
         String inMajors = scanner.nextLine();
         System.out.println("Enter Semester!");
@@ -70,6 +95,12 @@ public class InternManager {
         System.out.println("candidate find it:");
         for (Intern in : internList) {
             System.out.println(in);
+        }
+    }
+
+    public void displayExi() {
+        for (Intern i: internList) {
+            System.out.println(i);
         }
     }
 }

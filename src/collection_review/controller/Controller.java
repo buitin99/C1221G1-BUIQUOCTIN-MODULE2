@@ -1,9 +1,12 @@
 package collection_review.controller;
 
+import collection_review.model.Fresher;
 import collection_review.view.ExperienceManager;
 import collection_review.view.FresherManager;
 import collection_review.view.InternManager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -25,12 +28,36 @@ public class Controller {
             switch (chooseMenu) {
                 case 1:
                     experienceManager.addEx();
+                    System.out.println("Do you want continue (Y/N)?");
+                    System.out.println("1. Yes to continue (Press Y!)");
+                    System.out.println("2. No to display all candidates (Press N!)");
+                    String chooseYNE = scanner.nextLine();
+                    if (chooseYNE.equals("n")){
+                        experienceManager.displayExp();
+                        flag = false;
+                    }
                     break;
                 case 2:
                     fresherManager.addFr();
+                    System.out.println("Do you want continue (Y/N)?");
+                    System.out.println("1. Yes to continue (Press Y!)");
+                    System.out.println("2. No to display all candidates (Press N!)");
+                    String chooseYNF = scanner.nextLine();
+                    if (chooseYNF.equals("n")){
+                        fresherManager.displayExf();
+                        flag = false;
+                    }
                     break;
                 case 3:
                     internManager.addIn();
+                    System.out.println("Do you want continue (Y/N)?");
+                    System.out.println("1. Yes to continue (Press Y!)");
+                    System.out.println("2. No to display all candidates (Press N!)");
+                    String chooseYNI = scanner.nextLine();
+                    if (chooseYNI.equals("n")){
+                        internManager.displayExi();
+                        flag = false;
+                    }
                     break;
                 case 4:
                     System.out.println("CANDIDATE SEARCHING!:\n" +

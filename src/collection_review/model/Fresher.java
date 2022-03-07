@@ -7,10 +7,13 @@ public class Fresher extends Candidates {
     public Fresher() {
     }
 
-    public Fresher(int candidateId, String firstName, String lastName, int birthDate, String address, String phoneNumber, String email, int graduationDate, String rankOfGraduation) {
+    public Fresher(int candidateId, String firstName, String lastName, String birthDate, String address, String phoneNumber, String email, int graduationDate, String rankOfGraduation) {
         super(candidateId, firstName, lastName, birthDate, address, phoneNumber, email);
         this.graduationDate = graduationDate;
         this.rankOfGraduation = rankOfGraduation;
+    }
+
+    public Fresher(int frId, String frfName, String frlName, int frbDate, String frAdd, String frPhone, String frEmail, int frTime) {
     }
 
     public int getGraduationDate() {
@@ -28,6 +31,7 @@ public class Fresher extends Candidates {
     public void setRankOfGraduation(String rankOfGraduation) {
         this.rankOfGraduation = rankOfGraduation;
     }
+
 
     @Override
     public String toString() {

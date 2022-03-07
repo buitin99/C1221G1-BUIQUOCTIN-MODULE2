@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ProductManager {
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Product>  products = new ArrayList<>();
+    ArrayList<Product> products = new ArrayList<>();
 
         public void add(){
             System.out.println("Nhập id!");

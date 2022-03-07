@@ -9,7 +9,7 @@ public class Intern extends Candidates {
     public Intern() {
     }
 
-    public Intern(int candidateId, String firstName, String lastName, int birthDate, String address, String phoneNumber, String email, String majors, int semester, String universityName) {
+    public Intern(int candidateId, String firstName, String lastName, String birthDate, String address, String phoneNumber, String email, String majors, int semester, String universityName) {
         super(candidateId, firstName, lastName, birthDate, address, phoneNumber, email);
         this.majors = majors;
         Semester = semester;

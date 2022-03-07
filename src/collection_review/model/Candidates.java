@@ -1,10 +1,10 @@
 package collection_review.model;
 
-public abstract class Candidates {
+public class Candidates {
     private int candidateId;
     private String firstName;
     private String lastName;
-    private int birthDate;
+    private String birthDate;
     private String address;
     private String phoneNumber;
     private String email;
@@ -12,7 +12,7 @@ public abstract class Candidates {
     public Candidates() {
     }
 
-    public Candidates(int candidateId, String firstName, String lastName, int birthDate, String address, String phoneNumber, String email) {
+    public Candidates(int candidateId, String firstName, String lastName, String birthDate, String address, String phoneNumber, String email) {
         this.candidateId = candidateId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,11 +46,11 @@ public abstract class Candidates {
         this.lastName = lastName;
     }
 
-    public int getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(int birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

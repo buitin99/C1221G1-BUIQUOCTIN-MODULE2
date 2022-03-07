@@ -1,14 +1,10 @@
 package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
-
 import java.util.*;
-import java.util.Scanner;
 public class Product implements Comparable<Product>, Comparator<Product>{
     private int id;
     private String tenSanPham;
     private int giaTien;
     private int soLuong;
-
-    Scanner scanner = new Scanner(System.in);
     public Product() {
     }
 
@@ -60,7 +56,6 @@ public class Product implements Comparable<Product>, Comparator<Product>{
                 ", tenSanPham='" + tenSanPham + '\'' +
                 ", giaTien=" + giaTien +
                 ", soLuong=" + soLuong +
-                ", scanner=" + scanner +
                 '}';
     }
 
