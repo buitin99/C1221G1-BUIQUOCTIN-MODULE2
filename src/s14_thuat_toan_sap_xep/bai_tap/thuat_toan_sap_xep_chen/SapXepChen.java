@@ -1,4 +1,5 @@
 package s14_thuat_toan_sap_xep.bai_tap.thuat_toan_sap_xep_chen;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SapXepChen {
@@ -12,7 +13,7 @@ public class SapXepChen {
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++){
-            System.out.println("Enter element" + (i+1) + "of array");
+            System.out.println("Enter element " + (i+1) + " of array");
             array[i] = Integer.parseInt(scanner.nextLine());
         }
         int pos, x;
@@ -23,10 +24,11 @@ public class SapXepChen {
             while (pos > 0 && x < array[pos-1]){
                 array[pos] = array[pos-1];
                 pos--;
+                System.out.println("Lần thứ " + i + ": " + Arrays.toString(array));
             }
             array[pos] = x;
+            System.out.println("Sau lần thứ " + i + " : " + Arrays.toString(array));
         }
-        System.out.println();
     }
 }
 

@@ -43,7 +43,10 @@ public class ExperienceManager {
             System.out.println("Enter Birth date (Please enter YYYY!)");
             exbD = scanner.nextLine();
             if (exbD.length() == 4) {
-                flag = false;
+                int check = Integer.parseInt(exbD);
+                if (check > 1900){
+                    flag = false;
+                }
             }
         } while (flag);
         String exbDate = exbD;
