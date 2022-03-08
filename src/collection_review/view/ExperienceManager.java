@@ -63,9 +63,9 @@ public class ExperienceManager {
         String exPhone = exP;
         String exE;
         do {
-            System.out.println("Enter email (Please enter name_email@gmail.com!)");
+            System.out.println("Enter email (Please enter <account_name>@<domain>!)");
             exE = scanner.nextLine();
-            if (exE.contains("@gmail.com")){
+            if (exE.contains("@")){
                 flag3 = false;
             }
         }

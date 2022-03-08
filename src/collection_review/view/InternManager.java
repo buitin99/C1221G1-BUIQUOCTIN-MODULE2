@@ -57,9 +57,9 @@ public class InternManager {
         String inPhone = inP;
         String inE;
         do {
-            System.out.println("Enter email (Please enter name_email@gmail.com!)");
+            System.out.println("Enter email (Please enter <account_name>@<domain>!)");
             inE = scanner.nextLine();
-            if (inE.contains("@gmail.com")){
+            if (inE.contains("@")){
                 flag2 = false;
             }
         }

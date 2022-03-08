@@ -60,9 +60,9 @@ public class FresherManager {
         String frPhone = frP;
         String frE;
         do {
-            System.out.println("Enter email (Please enter name_email@gmail.com!)");
+            System.out.println("Enter email (Please enter <account_name>@<domain>!)");
             frE = scanner.nextLine();
-            if (frE.contains("@gmail.com")){
+            if (frE.contains("@")){
                 flag3 = false;
             }
         }
