@@ -1,6 +1,6 @@
 package s12_java_collection_framework.bai_tap.arraylist_linkedlist;
 import java.util.*;
-public class Product implements Comparable<Product>, Comparator<Product>{
+public class Product implements Comparable<Product>{
     private int id;
     private String tenSanPham;
     private int giaTien;
@@ -71,8 +71,4 @@ public class Product implements Comparable<Product>, Comparator<Product>{
         }
     }
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return o1.getGiaTien()-o2.getGiaTien();
-    }
 }

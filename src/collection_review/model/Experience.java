@@ -1,5 +1,4 @@
 package collection_review.model;
-
 public class Experience extends Candidates {
     private int expInYear;
     private String proSkill;

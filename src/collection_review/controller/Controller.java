@@ -1,12 +1,7 @@
 package collection_review.controller;
-
-import collection_review.model.Fresher;
 import collection_review.view.ExperienceManager;
 import collection_review.view.FresherManager;
 import collection_review.view.InternManager;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -32,7 +27,7 @@ public class Controller {
                     System.out.println("1. Yes to continue (Press Y!)");
                     System.out.println("2. No to display all candidates (Press N!)");
                     String chooseYNE = scanner.nextLine();
-                    if (chooseYNE.equals("n")){
+                    if (chooseYNE.equals("n") || chooseYNE.equals("N") ){
                         experienceManager.displayExp();
                         flag = false;
                     }
@@ -43,7 +38,7 @@ public class Controller {
                     System.out.println("1. Yes to continue (Press Y!)");
                     System.out.println("2. No to display all candidates (Press N!)");
                     String chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n")){
+                    if (chooseYNF.equals("n") || chooseYNF.equals("N")){
                         fresherManager.displayExf();
                         flag = false;
                     }
@@ -54,7 +49,7 @@ public class Controller {
                     System.out.println("1. Yes to continue (Press Y!)");
                     System.out.println("2. No to display all candidates (Press N!)");
                     String chooseYNI = scanner.nextLine();
-                    if (chooseYNI.equals("n")){
+                    if (chooseYNI.equals("n")|| chooseYNI.equals("N")){
                         internManager.displayExi();
                         flag = false;
                     }
@@ -86,3 +81,4 @@ public class Controller {
         } while (flag);
     }
 }
+

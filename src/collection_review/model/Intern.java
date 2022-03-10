@@ -1,5 +1,4 @@
 package collection_review.model;
-
 public class Intern extends Candidates {
 
     private String majors;

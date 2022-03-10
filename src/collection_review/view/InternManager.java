@@ -1,5 +1,4 @@
 package collection_review.view;
-import collection_review.model.Experience;
 import collection_review.model.Intern;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,6 @@ public class InternManager {
                 flag = false;
             }
         } while (flag);
-        String inbDate = inbD;
         System.out.println("Enter Address!");
         String inAdd = scanner.nextLine();
         String inP;
@@ -54,7 +52,6 @@ public class InternManager {
                 flag1 = false;
             }
         } while (flag1);
-        String inPhone = inP;
         String inE;
         do {
             System.out.println("Enter email (Please enter <account_name>@<domain>!)");
@@ -64,7 +61,6 @@ public class InternManager {
             }
         }
         while (flag2);
-        String inEmail = inE;
         System.out.println("Enter Majors!");
         String inMajors = scanner.nextLine();
         System.out.println("Enter Semester!");
@@ -72,7 +68,7 @@ public class InternManager {
         System.out.println("Enter University name!");
         String inUName = scanner.nextLine();
         System.out.println("Add succesction!");
-        internList.add(new Intern(inId,infName,inlName,inbDate,inAdd,inPhone,inEmail,inMajors,inSemester,inUName));
+        internList.add(new Intern(inId,infName,inlName,inbD,inAdd,inP,inE,inMajors,inSemester,inUName));
     }
 
     public void searchingIn() {

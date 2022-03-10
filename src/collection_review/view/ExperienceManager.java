@@ -1,7 +1,5 @@
 package collection_review.view;
-
 import collection_review.model.Experience;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +47,6 @@ public class ExperienceManager {
                 }
             }
         } while (flag);
-        String exbDate = exbD;
         System.out.println("Enter Address!");
         String exAdd = scanner.nextLine();
         String exP;
@@ -60,7 +57,6 @@ public class ExperienceManager {
                 flag1 = false;
             }
         } while (flag1);
-        String exPhone = exP;
         String exE;
         do {
             System.out.println("Enter email (Please enter <account_name>@<domain>!)");
@@ -70,7 +66,6 @@ public class ExperienceManager {
             }
         }
         while (flag3);
-        String exEmail = exE;
         int exEX;
         do {
             System.out.println("Enter year of experience!");
@@ -83,7 +78,7 @@ public class ExperienceManager {
         System.out.println("Enter Professional Skill!");
         String expSkill = scanner.nextLine();
         System.out.println("Add succesction!");
-        experienceList.add(new Experience(exId, exfName, exlName, exbDate, exAdd, exPhone, exEmail, exyoEx, expSkill));
+        experienceList.add(new Experience(exId, exfName, exlName, exbD, exAdd, exP, exE, exyoEx, expSkill));
     }
 
     public void searchingEx() {

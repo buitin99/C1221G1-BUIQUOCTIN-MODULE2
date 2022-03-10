@@ -46,7 +46,6 @@ public class FresherManager {
                 flag = false;
             }
         } while (flag);
-        String frbDate = frbD;
         System.out.println("Enter Address!");
         String frAdd = scanner.nextLine();
         String frP;
@@ -57,17 +56,15 @@ public class FresherManager {
                 flag1 = false;
             }
         } while (flag1);
-        String frPhone = frP;
         String frE;
         do {
             System.out.println("Enter email (Please enter <account_name>@<domain>!)");
             frE = scanner.nextLine();
-            if (frE.contains("@")){
+            if (frE.contains("@")) {
                 flag3 = false;
             }
         }
         while (flag3);
-        String frEmail = frE;
         System.out.println("Enter graduated time!");
         int frTime = Integer.parseInt(scanner.nextLine());
         do {
@@ -83,25 +80,25 @@ public class FresherManager {
                     fresherGraduationOfList(1);
                     frRank = fresher.getRankOfGraduation();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(frId, frfName, frlName, frbDate, frAdd, frPhone, frEmail, frTime, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 2:
                     fresherGraduationOfList(2);
                     frRank = fresher.getRankOfGraduation();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(frId, frfName, frlName, frbDate, frAdd, frPhone, frEmail, frTime, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 3:
                     fresherGraduationOfList(3);
                     frRank = fresher.getRankOfGraduation();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(frId, frfName, frlName, frbDate, frAdd, frPhone, frEmail, frTime, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 4:
                     fresherGraduationOfList(4);
                     frRank = fresher.getRankOfGraduation();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(frId, frfName, frlName, frbDate, frAdd, frPhone, frEmail, frTime, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 default:
                     flag2 = false;
@@ -126,12 +123,13 @@ public class FresherManager {
     public void displayEx(List<Fresher> fresherList) {
         if (fresherList.size() == 0) {
             System.out.println("not found candidate!");
-            return;
+        } else {
+            System.out.println("candidate find it:");
+            for (Fresher fr : fresherList) {
+                System.out.println(fr);
+            }
         }
-        System.out.println("candidate find it:");
-        for (Fresher fr : fresherList) {
-            System.out.println(fr);
-        }
+
     }
 
     public void fresherGraduationOfList(int chooseGraduation) {
@@ -152,7 +150,7 @@ public class FresherManager {
     }
 
     public void displayExf() {
-        for (Fresher f: fresherList) {
+        for (Fresher f : fresherList) {
             System.out.println(f);
         }
     }

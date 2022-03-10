@@ -1,5 +1,4 @@
 package collection_review.model;
-
 public class Fresher extends Candidates {
     private int graduationDate;
     private String rankOfGraduation;

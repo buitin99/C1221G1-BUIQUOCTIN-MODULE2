@@ -1,5 +1,4 @@
 package collection_review.model;
-
 public class Candidates {
     private int candidateId;
     private String firstName;
