@@ -1,7 +1,7 @@
 package collection_review.controller;
-import collection_review.view.ExperienceManager;
-import collection_review.view.FresherManager;
-import collection_review.view.InternManager;
+import collection_review.service.s.ExperienceManager;
+import collection_review.service.s.FresherManager;
+import collection_review.service.s.InternManager;
 import java.util.Scanner;
 
 public class Controller {

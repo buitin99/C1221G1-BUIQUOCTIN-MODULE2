@@ -1,4 +1,4 @@
-package collection_review.view;
+package collection_review.service.s;
 import collection_review.model.Intern;
 import java.util.ArrayList;
 import java.util.List;

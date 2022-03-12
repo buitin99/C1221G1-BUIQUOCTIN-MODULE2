@@ -61,25 +61,14 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public void input(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Id : ");
-        idOfProduct = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter Name : ");
-        nameOfProduct = scanner.nextLine();
-        System.out.println("Enter Manufacturer : ");
-        manufacturer = scanner.nextLine();
-        System.out.println("Enter Price : ");
-        priceOfProduct = scanner.nextDouble();
-        System.out.println("Enter Description : ");
-        description = scanner.nextLine();
-    }
-
-    public void display(){
-        System.out.println(this);
-    }
-
-    public String getInfoToCSV(){
-        return this.idOfProduct+","+this.nameOfProduct+","+this.manufacturer+","+this.priceOfProduct+","+this.description;
+    @Override
+    public String toString() {
+        return "Product{" +
+                "idOfProduct=" + idOfProduct +
+                ", nameOfProduct='" + nameOfProduct + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", priceOfProduct=" + priceOfProduct +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
