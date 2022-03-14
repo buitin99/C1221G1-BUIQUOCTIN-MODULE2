@@ -1,10 +1,10 @@
-package oop_bai_tap.bai_tap_lam_them.view;
+package oop_bai_tap.bai_tap_lam_them.service;
 import oop_bai_tap.bai_tap_lam_them.models.XeTai;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class XeTaiView {
+public class XeTaiService {
     Scanner scanner = new Scanner(System.in);
     List<XeTai> xeTai1 = new ArrayList<>();
     public void add(){

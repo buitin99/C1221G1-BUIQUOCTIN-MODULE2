@@ -1,10 +1,10 @@
-package oop_bai_tap.bai_tap_lam_them.view;
+package oop_bai_tap.bai_tap_lam_them.service;
 import oop_bai_tap.bai_tap_lam_them.models.XeMay;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class XeMayView {
+public class XeMayService {
     Scanner scanner = new Scanner(System.in);
     XeMay xeMay1 = new XeMay();
     List<XeMay> xe1 = new ArrayList<>();

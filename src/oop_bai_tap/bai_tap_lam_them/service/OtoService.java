@@ -1,4 +1,4 @@
-package oop_bai_tap.bai_tap_lam_them.view;
+package oop_bai_tap.bai_tap_lam_them.service;
 
 import oop_bai_tap.bai_tap_lam_them.models.Oto;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class OtoView {
+public class OtoService {
     Scanner scanner = new Scanner(System.in);
     List<Oto> oto1 = new ArrayList<>();
     public void add(){

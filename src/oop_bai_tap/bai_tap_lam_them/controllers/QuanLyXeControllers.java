@@ -1,8 +1,8 @@
 package oop_bai_tap.bai_tap_lam_them.controllers;
 
-import oop_bai_tap.bai_tap_lam_them.view.OtoView;
-import oop_bai_tap.bai_tap_lam_them.view.XeMayView;
-import oop_bai_tap.bai_tap_lam_them.view.XeTaiView;
+import oop_bai_tap.bai_tap_lam_them.service.OtoService;
+import oop_bai_tap.bai_tap_lam_them.service.XeMayService;
+import oop_bai_tap.bai_tap_lam_them.service.XeTaiService;
 
 import java.util.*;
 
@@ -10,9 +10,9 @@ public abstract class QuanLyXeControllers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        XeTaiView xeTaiView = new XeTaiView();
-        OtoView otoView = new OtoView();
-        XeMayView xeMayView = new XeMayView();
+        XeTaiService xeTaiService = new XeTaiService();
+        OtoService otoService = new OtoService();
+        XeMayService xeMayService = new XeMayService();
         boolean flag = true;
         do {
             System.out.println("Main Menu:\n" +
@@ -33,15 +33,15 @@ public abstract class QuanLyXeControllers {
                     switch (chooseMenu1) {
                         case 1:
                             //thêm xe tải
-                            xeTaiView.add();
+                            xeTaiService.add();
                             break;
                         case 2:
                             //thêm xe ô tô
-                            otoView.add();
+                            otoService.add();
                             break;
                         case 3:
                             //thêm xe máy
-                            xeMayView.add();
+                            xeMayService.add();
                             break;
                         default:
                             flag = false;
@@ -57,15 +57,15 @@ public abstract class QuanLyXeControllers {
                     switch (chooseMenu2) {
                         case 1:
                             System.out.println("Hiện thị xe tải");
-                            xeTaiView.display();
+                            xeTaiService.display();
                             break;
                         case 2:
                             System.out.println("Hiện thị xe ô tô");
-                            otoView.display();
+                            otoService.display();
                             break;
                         case 3:
                             System.out.println("Hiện thị xe máy");
-                            xeMayView.add();
+                            xeMayService.add();
                             break;
                     }
                     break;
@@ -79,15 +79,15 @@ public abstract class QuanLyXeControllers {
                     switch (chooseMenu3) {
                         case 1:
                             System.out.println("Xóa xe tải!");
-                            xeTaiView.delete();
+                            xeTaiService.delete();
                             break;
                         case 2:
                             System.out.println("Xóa xe ô tô!");
-                            otoView.delete();
+                            otoService.delete();
                             break;
                         case 3:
                             System.out.println("Xóa xe máy!");
-                            xeMayView.delete();
+                            xeMayService.delete();
                             break;
                     }
                     break;
