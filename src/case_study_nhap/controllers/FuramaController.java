@@ -1,13 +1,20 @@
-package case_study.controllers;
+package case_study_nhap.controllers;
 
-import case_study.service.EmployeeServiceImpl;
+import case_study_nhap.service.impl.CustomerServiceImpl;
+import case_study_nhap.service.impl.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     public static void main(String[] args) {
+        displayMainMenu();
+    }
+
+    public static void displayMainMenu(){
         Scanner scanner = new Scanner(System.in);
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
+
         boolean flag = true;
         do {
             System.out.println("Display Main Menu:\n" +
@@ -38,6 +45,8 @@ public class FuramaController {
                             employeeService.add();
                             break;
                         case 3:
+                            System.out.println("Edit employees!");
+                            employeeService.edit();
                             break;
                     }
                     break;
@@ -51,11 +60,16 @@ public class FuramaController {
                     int chooseMenu2 = Integer.parseInt(scanner.nextLine());
                     switch (chooseMenu2) {
                         case 1:
-                            System.out.println();
+                            System.out.println("Display list customers");
+                            customerService.display();
                             break;
                         case 2:
+                            System.out.println("Add new customers");
+                            customerService.add();
                             break;
                         case 3:
+                            System.out.println("Edit customers");
+                            customerService.edit();
                             break;
                     }
                     break;
@@ -114,6 +128,7 @@ public class FuramaController {
                     flag = false;
             }
         } while (flag);
-
     }
+
 }
+

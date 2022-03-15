@@ -1,50 +1,22 @@
 package case_study.models;
 
-public abstract class Person {
+public class Person {
     private String name;
-    private int age;
-    private int dateOfBirth;
+    private String dateOfBirth;
     private String gender;
+    private String identifyCard;
+    private String phoneNumber;
+    private String email;
 
     public Person() {
     }
 
-    public Person(String name, int age, int dateOfBirth, String gender) {
+    public Person(String name, String dateOfBirth, String gender, String identifyCard, String phoneNumber, String email) {
         this.name = name;
-        this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(int dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+        this.identifyCard = identifyCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 }

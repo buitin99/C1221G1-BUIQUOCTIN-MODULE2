@@ -1,6 +1,6 @@
-package case_study.models;
+package case_study_nhap.models;
 
-public class Employee extends Person {
+public class Employee extends Person{
 
     private String employeeCode;
     private String identifyCard;
@@ -23,6 +23,8 @@ public class Employee extends Person {
         this.role = role;
         this.salary = salary;
     }
+
+
 
     public String getEmployeeCode() {
         return employeeCode;
@@ -78,5 +80,22 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + getName() + '\'' +
+                "age='" + getAge() + '\'' +
+                "date of birth ='" +getDateOfBirth()  + '\'' +
+                "gender='" + getGender() + '\'' +
+                "employeeCode='" + employeeCode + '\'' +
+                ", identifyCard='" + identifyCard + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", degree='" + degree + '\'' +
+                ", role='" + role + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
