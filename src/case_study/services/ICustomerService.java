@@ -1,7 +1,6 @@
-package case_study_nhap.service;
+package case_study.services;
 
 public interface ICustomerService extends IService {
-    void add();
-    void display();
     void edit();
+    void editMain(int i);
 }

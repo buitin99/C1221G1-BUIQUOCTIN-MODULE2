@@ -43,6 +43,12 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer{" +
+                "name='" + getName() + '\'' +
+                "date of birth='" + getDateOfBirth() + '\'' +
+                "gender='" + getGender() + '\'' +
+                "identify card='" + getIdentifyCard() + '\'' +
+                "phone number='" + getPhoneNumber() + '\'' +
+                "email='" + getEmail() + '\'' +
                 "customerId='" + customerId + '\'' +
                 ", typeOfCustomer='" + typeOfCustomer + '\'' +
                 ", address='" + address + '\'' +

@@ -1,7 +1,8 @@
 package case_study.controllers;
-
-import case_study.service.IService;
-import case_study.service.impl.EmployeeServiceImpl;
+import case_study.models.Facility;
+import case_study.services.impl.CustomerServiceImpl;
+import case_study.services.impl.EmployeeServiceImpl;
+import case_study.services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class Controller {
     public static void displayMainMenu(){
         Scanner scanner = new Scanner(System.in);
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
         boolean flag = true;
         do {
             System.out.println("Display Main Menu:\n" +
@@ -55,15 +58,15 @@ public class Controller {
                     switch (chooseMenu2) {
                         case 1:
                             System.out.println("Display list customers");
-//                            customerService.display();
+                            customerService.display();
                             break;
                         case 2:
                             System.out.println("Add new customers");
-//                            customerService.add();
+                            customerService.add();
                             break;
                         case 3:
                             System.out.println("Edit customers");
-//                            customerService.edit();
+                            customerService.edit();
                             break;
                     }
                     break;
@@ -71,13 +74,15 @@ public class Controller {
                     System.out.println("Facility Management!\n" +
                             "1. Display list facility\n" +
                             "2. Add new facility\n" +
-                            "3. Display list facility maintenance\n" +
+                            "3. Display list facility maintain\n" +
                             "4. Return main menu");
                     int chooseMenu3 = Integer.parseInt(scanner.nextLine());
                     switch (chooseMenu3) {
                         case 1:
+                            facilityService.display();
                             break;
                         case 2:
+                            facilityService.add();
                             break;
                         case 3:
                             break;
