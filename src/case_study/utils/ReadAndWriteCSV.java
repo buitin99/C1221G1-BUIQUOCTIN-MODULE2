@@ -1,12 +1,12 @@
-package common;
+package case_study.utils;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileUtils {
-
-    public static void writeFile(String pathFile, String line){
+public class ReadAndWriteCSV implements IReadAndWriteCSV {
+    @Override
+    public void writeFile(String pathFile, String line){
         try {
             FileWriter fileWriter = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -18,7 +18,8 @@ public class FileUtils {
         }
     }
 
-    public static List<String> readFile(String pathFile) {
+    @Override
+    public List<String> readFile(String pathFile) {
         List<String> listline = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(pathFile);

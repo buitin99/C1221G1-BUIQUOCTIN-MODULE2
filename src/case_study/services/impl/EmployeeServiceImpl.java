@@ -1,7 +1,9 @@
 package case_study.services.impl;
 
+import case_study.models.Customer;
 import case_study.models.Employee;
 import case_study.services.IEmployeeService;
+import case_study.utils.ReadAndWriteCSV;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +12,11 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements IEmployeeService {
 
     private static List<Employee> employeeList = new ArrayList<>();
+    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
     private static Scanner scanner = new Scanner(System.in);
-
+    final String FILE_EMPLOYEE = "src\\case_study\\data\\emplloyee.csv";
+    String line;
+    String lineR;
     @Override
     public void add() {
         String degree;
@@ -85,12 +90,21 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.println("Enter salary of employee!");
         String salary = scanner.nextLine();
         employeeList.add(new Employee(name, dOB, gender, identifyCard, phoneNumber, email, employeeID, degree, position, salary));
+        line = name+","+dOB+","+gender+","+identifyCard+","+phoneNumber+","+email+","+employeeID+","+degree+","+position+","+salary;
         System.out.println("Add new employee success!");
+        readAndWriteCSV.writeFile(FILE_EMPLOYEE,line);
+
     }
 
     @Override
     public void display() {
-        for (Employee e : employeeList) {
+//        for (Employee e : employeeList) {
+//            System.out.println(e);
+//        }
+
+        List<String> employeeList = readAndWriteCSV.readFile(FILE_EMPLOYEE);
+        String[] test;
+        for (String e: employeeList) {
             System.out.println(e);
         }
     }

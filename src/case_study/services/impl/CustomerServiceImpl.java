@@ -2,7 +2,9 @@ package case_study.services.impl;
 
 import case_study.models.Customer;
 import case_study.services.IEmployeeService;
+import case_study.utils.ReadAndWriteCSV;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +12,9 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements IEmployeeService {
     private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
+    final String FILE_CUSTOMER = "src\\case_study\\data\\customer.csv";
+    String line;
+    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
     @Override
     public void add(){
         String typeOfCustomer;
@@ -55,13 +60,20 @@ public class CustomerServiceImpl implements IEmployeeService {
         }
         System.out.println("Enter address customer!");
         String address = scanner.nextLine();
-
         customerList.add(new Customer(name,doB,gender,identifyCard,phoneNumber,email,customerId,typeOfCustomer,address));
+        System.out.println("Add customer succes!");
+        line = name+","+doB+","+gender+","+identifyCard+","+phoneNumber+","+email+","+customerId+","+typeOfCustomer+","+address+",";
+        readAndWriteCSV.writeFile(FILE_CUSTOMER,line);
     }
 
     @Override
     public void display(){
-        for (Customer c: customerList) {
+//        for (Customer c: customerList) {
+//            System.out.println(c);
+//        }
+//        List<String> customer = readAndWriteCSV.readFile(FILE_CUSTOMER);
+        List<String> customer = readAndWriteCSV.readFile(FILE_CUSTOMER);
+        for (String c: customer) {
             System.out.println(c);
         }
     }

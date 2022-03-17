@@ -4,6 +4,7 @@ import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Villa;
 import case_study.services.IFacilityService;
+import case_study.utils.ReadAndWriteCSV;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -12,6 +13,13 @@ import java.util.Scanner;
 public class FacilityServiceImpl implements IFacilityService {
     private static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
+    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
+    final String FILE_VILLA = "src\\case_study\\data\\villa.csv";
+    final String FILE_HOUSE = "src\\case_study\\data\\house.csv";
+    final String FILE_ROOM = "src\\case_study\\data\\room.csv";
+    String lineV;
+    String lineH;
+    String lineR;
 
     @Override
     public void add() {
@@ -69,6 +77,8 @@ public class FacilityServiceImpl implements IFacilityService {
         String vNOF = scanner.nextLine();
         Villa villa = new Villa(vSC,vSN,vAU,vRF,vMax,vTOR,vRS,vPA,vNOF);
         facilityIntegerMap.put(villa,0);
+        lineV = vSC+","+vSN+","+vAU+","+vRF+","+vMax+","+vTOR+","+vRS+","+vPA+","+vNOF;
+        readAndWriteCSV.writeFile(FILE_VILLA,lineV);
     }
 
     @Override
@@ -91,6 +101,8 @@ public class FacilityServiceImpl implements IFacilityService {
         String hNOF = scanner.nextLine();
         House house = new House(hSC,hSN,hAU,hRF,hMax,hTOR,hRS,hNOF);
         facilityIntegerMap.put(house,0);
+        lineH = hSC+","+hSN+","+hAU+","+hRF+","+hMax+","+hTOR+","+hRS+","+hNOF;
+        readAndWriteCSV.writeFile(FILE_HOUSE,lineH);
     }
 
     @Override
@@ -111,7 +123,7 @@ public class FacilityServiceImpl implements IFacilityService {
         String rFS = scanner.nextLine();
         Room room = new Room(rSC,rSN,rAU,rRF,rMax,rTOR,rFS);
         facilityIntegerMap.put(room,0);
+        lineR = rSC+","+rSN+","+rAU+","+rRF+","+rMax+","+rTOR+","+rFS;
+        readAndWriteCSV.writeFile(FILE_ROOM,lineR);
     }
-
-
 }
