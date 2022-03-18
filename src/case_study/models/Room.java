@@ -21,8 +21,12 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "Room{" + super.toString()+
                 "freeService='" + freeService + '\'' +
                 '}';
+    }
+
+    public String getInFor(){
+        return super.toInFor()+","+freeService;
     }
 }

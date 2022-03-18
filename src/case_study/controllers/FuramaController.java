@@ -1,12 +1,11 @@
 package case_study.controllers;
-import case_study.models.Facility;
 import case_study.services.impl.CustomerServiceImpl;
 import case_study.services.impl.EmployeeServiceImpl;
 import case_study.services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
-public class Controller {
+public class FuramaController {
     public static void displayMainMenu(){
         Scanner scanner = new Scanner(System.in);
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();

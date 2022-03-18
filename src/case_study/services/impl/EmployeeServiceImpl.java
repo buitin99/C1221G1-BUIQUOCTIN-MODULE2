@@ -11,12 +11,10 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
 
-    private static List<Employee> employeeList = new ArrayList<>();
-    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
+    private static List<Employee> employeeList = ReadAndWriteCSV.readEmployeeListFromCSV();
     private static Scanner scanner = new Scanner(System.in);
-    final String FILE_EMPLOYEE = "src\\case_study\\data\\emplloyee.csv";
-    String line;
-    String lineR;
+
+
     @Override
     public void add() {
         String degree;
@@ -90,23 +88,17 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.println("Enter salary of employee!");
         String salary = scanner.nextLine();
         employeeList.add(new Employee(name, dOB, gender, identifyCard, phoneNumber, email, employeeID, degree, position, salary));
-        line = name+","+dOB+","+gender+","+identifyCard+","+phoneNumber+","+email+","+employeeID+","+degree+","+position+","+salary;
         System.out.println("Add new employee success!");
-        readAndWriteCSV.writeFile(FILE_EMPLOYEE,line);
-
+        ReadAndWriteCSV.writeEmployee(employeeList,true);
     }
 
     @Override
     public void display() {
-//        for (Employee e : employeeList) {
-//            System.out.println(e);
-//        }
-
-        List<String> employeeList = readAndWriteCSV.readFile(FILE_EMPLOYEE);
-        String[] test;
-        for (String e: employeeList) {
+        List<Employee> employeeList = ReadAndWriteCSV.readEmployeeListFromCSV();
+        for (Employee e: employeeList) {
             System.out.println(e);
         }
+
     }
 
     @Override
@@ -122,14 +114,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 System.out.println("Not found employee!");
             }
         }
-
-
     }
 
     @Override
     public void editMain(int i) {
         boolean flag = true;
-        String chooseYNF;
         do {
             System.out.println("MENU EDIT EMPLOYEE!");
             System.out.println("0: EDIT NAME!");
@@ -149,86 +138,37 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     System.out.println("Enter name to change!");
                     String cName = scanner.nextLine();
                     employeeList.get(i).setName(cName);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
 
                 case 1:
                     System.out.println("Enter birdth to change");
                     String cG = scanner.nextLine();
                     employeeList.get(i).setGender(cG);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 2:
                     System.out.println("Enter gender to change");
                     String cDoB = scanner.nextLine();
                     employeeList.get(i).setDateOfBirth(cDoB);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 3:
                     System.out.println("Enter identify card to change");
                     String cIC = scanner.nextLine();
                     employeeList.get(i).setIdentifyCard(cIC);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 4:
                     System.out.println("Enter phone number to change");
                     String cPN = scanner.nextLine();
                     employeeList.get(i).setIdentifyCard(cPN);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 5:
                     System.out.println("Enter email to change");
                     String cE = scanner.nextLine();
                     employeeList.get(i).setEmail(cE);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 6:
                     System.out.println("Enter employee id to change");
                     String eID = scanner.nextLine();
                     employeeList.get(i).setDegree(eID);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 7:
                     System.out.println("Enter degree to change");
@@ -255,10 +195,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
                             cR = "Intermediate";
                     }
                     employeeList.get(i).setDegree(cR);
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 8:
                     String cPosition;
@@ -293,30 +229,17 @@ public class EmployeeServiceImpl implements IEmployeeService {
                             cPosition = "Staff";
                     }
                     employeeList.get(i).setPosition(cPosition);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 case 9:
                     System.out.println("Enter salary to change");
                     String eS = scanner.nextLine();
                     employeeList.get(i).setSalary(eS);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt information employee (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
                     break;
                 default:
                     flag = false;
             }
         }
         while (flag);
+        ReadAndWriteCSV.writeEmployee(employeeList,false);
     }
 }

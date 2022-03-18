@@ -1,25 +1,26 @@
 package case_study.services.impl;
-import case_study.models.Facility;
-import case_study.models.House;
-import case_study.models.Room;
-import case_study.models.Villa;
+import case_study.models.*;
 import case_study.services.IFacilityService;
 import case_study.utils.ReadAndWriteCSV;
+import case_study.utils.RegexData;
 
+import java.lang.ref.PhantomReference;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements IFacilityService {
     private static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
-    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
-    final String FILE_VILLA = "src\\case_study\\data\\villa.csv";
-    final String FILE_HOUSE = "src\\case_study\\data\\house.csv";
-    final String FILE_ROOM = "src\\case_study\\data\\room.csv";
-    String lineV;
-    String lineH;
-    String lineR;
+    static List<House> readAndWriteHouseToCSV = ReadAndWriteCSV.readHouseListFromCSV();
+    static List<Room> readAndWriteRoomToCSV = ReadAndWriteCSV.readRoomListFromCSV();
+    static List<Villa> readAndWriteVillaToCSV = ReadAndWriteCSV.readVillaListFromCSV();
+
+    public static final String REG_VL = "^SVVL-\\d{4}$";
+    public static final String REG_RO = "^SVRO-\\d{4}$";
+    public static final String REG_HO = "^SVHO-\\d{4}$";
+
 
     @Override
     public void add() {
@@ -44,6 +45,18 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
+        for (Villa v: readAndWriteVillaToCSV) {
+            facilityIntegerMap.put(v,0);
+        }
+
+        for (House h: readAndWriteHouseToCSV) {
+            facilityIntegerMap.put(h,0);
+        }
+
+        for (Room r: readAndWriteRoomToCSV) {
+            facilityIntegerMap.put(r,0);
+        }
+
         for (Map.Entry<Facility,Integer> e : facilityIntegerMap.entrySet()) {
             System.out.println("Service:" + e.getKey() + "Used:" + e.getValue());
         }
@@ -58,9 +71,9 @@ public class FacilityServiceImpl implements IFacilityService {
     @Override
     public void addNewVilla() {
         System.out.println("Enter service code!");
-        String vSC = scanner.nextLine();
+        String vSC = inputVilla();
         System.out.println("Enter service name!");
-        String vSN = scanner.nextLine();
+        String vSN = inputVilla();
         System.out.println("Enter area used!");
         String vAU = scanner.nextLine();
         System.out.println("Enter rental Fee!");
@@ -77,8 +90,9 @@ public class FacilityServiceImpl implements IFacilityService {
         String vNOF = scanner.nextLine();
         Villa villa = new Villa(vSC,vSN,vAU,vRF,vMax,vTOR,vRS,vPA,vNOF);
         facilityIntegerMap.put(villa,0);
-        lineV = vSC+","+vSN+","+vAU+","+vRF+","+vMax+","+vTOR+","+vRS+","+vPA+","+vNOF;
-        readAndWriteCSV.writeFile(FILE_VILLA,lineV);
+        readAndWriteVillaToCSV.add(villa);
+        ReadAndWriteCSV.writeVilla(readAndWriteVillaToCSV,true);
+
     }
 
     @Override
@@ -101,8 +115,8 @@ public class FacilityServiceImpl implements IFacilityService {
         String hNOF = scanner.nextLine();
         House house = new House(hSC,hSN,hAU,hRF,hMax,hTOR,hRS,hNOF);
         facilityIntegerMap.put(house,0);
-        lineH = hSC+","+hSN+","+hAU+","+hRF+","+hMax+","+hTOR+","+hRS+","+hNOF;
-        readAndWriteCSV.writeFile(FILE_HOUSE,lineH);
+        readAndWriteHouseToCSV.add(house);
+        ReadAndWriteCSV.writeHouse(readAndWriteHouseToCSV,true);
     }
 
     @Override
@@ -123,7 +137,32 @@ public class FacilityServiceImpl implements IFacilityService {
         String rFS = scanner.nextLine();
         Room room = new Room(rSC,rSN,rAU,rRF,rMax,rTOR,rFS);
         facilityIntegerMap.put(room,0);
-        lineR = rSC+","+rSN+","+rAU+","+rRF+","+rMax+","+rTOR+","+rFS;
-        readAndWriteCSV.writeFile(FILE_ROOM,lineR);
+        readAndWriteRoomToCSV.add(room);
+        ReadAndWriteCSV.writeRoom(readAndWriteRoomToCSV,true);
     }
+
+    private String inputVilla(){
+        System.out.println("ENTER VILLA SERVICE");
+        return RegexData.regexStr(scanner.nextLine(),REG_VL,"WRONG SERVICE VILLA : SVVL-NNNN. EX SVVL-1234!");
+    }
+
+    private String inputRoom(){
+        System.out.println("ENTER ROOM SERVICE ");
+        return RegexData.regexStr(scanner.nextLine(),REG_VL,"WRONG SERVICE ROOM : SVRO-NNNN. EX SVRO-1234!");
+    }
+
+    private String inputHouse(){
+        System.out.println("ENTER HOUSE SERVICE ");
+        return RegexData.regexStr(scanner.nextLine(),REG_VL,"WRONG SERVICE ROOM : SVHO-NNNN. EX SVHO-1234!");
+    }
+
+    private String inputServiceName(){
+        System.out.println("ENTER SERVICE NAME");
+        return RegexData.regexStr(scanner.nextLine(),REG_VL,"WRONG NAME SERVICE : EX Villa!");
+    }
+
+//    private String serviceName(){
+//        System.out.println("ENTER SERVICE NAME");
+//        return RegexData.regexStr(scanner.nextLine(),)
+//    }
 }

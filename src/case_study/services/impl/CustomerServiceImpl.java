@@ -1,10 +1,9 @@
 package case_study.services.impl;
-
 import case_study.models.Customer;
 import case_study.services.IEmployeeService;
 import case_study.utils.ReadAndWriteCSV;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,9 +11,16 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements IEmployeeService {
     private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
-    final String FILE_CUSTOMER = "src\\case_study\\data\\customer.csv";
-    String line;
-    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
+    private static List<Customer> customerListRW = ReadAndWriteCSV.readCustomerListFromCSV();
+
+
+//    static {
+//        customerList.add(new Customer("châu bùi","1","nữ","112","0984384933","chaubui@gmail.com","a1233","Diamond","đà nẵng"));
+//        customerList.add(new Customer("phan an","3","nam","114","0123824422","phânn@gmail.com","g1221","Platinium","quảng nam"));
+//        customerList.add(new Customer("hoàng long","6","nam","110","0383829112","hoanglong@gmail.com","a9876","Gold","hà nội"));
+//        ReadAndWriteCSV.writeCustomer(customerList,true);
+//    }
+
     @Override
     public void add(){
         String typeOfCustomer;
@@ -62,18 +68,12 @@ public class CustomerServiceImpl implements IEmployeeService {
         String address = scanner.nextLine();
         customerList.add(new Customer(name,doB,gender,identifyCard,phoneNumber,email,customerId,typeOfCustomer,address));
         System.out.println("Add customer succes!");
-        line = name+","+doB+","+gender+","+identifyCard+","+phoneNumber+","+email+","+customerId+","+typeOfCustomer+","+address+",";
-        readAndWriteCSV.writeFile(FILE_CUSTOMER,line);
-    }
+        ReadAndWriteCSV.writeCustomer(customerListRW,true);
 
+    }
     @Override
     public void display(){
-//        for (Customer c: customerList) {
-//            System.out.println(c);
-//        }
-//        List<String> customer = readAndWriteCSV.readFile(FILE_CUSTOMER);
-        List<String> customer = readAndWriteCSV.readFile(FILE_CUSTOMER);
-        for (String c: customer) {
+        for (Customer c: customerListRW) {
             System.out.println(c);
         }
     }
@@ -83,8 +83,8 @@ public class CustomerServiceImpl implements IEmployeeService {
         display();
         System.out.println("Enter identify card of customer to change!");
         String cIC = scanner.nextLine();
-        for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i).getIdentifyCard().equals(cIC)) {
+        for (int i = 0; i < customerListRW.size(); i++) {
+            if (customerListRW.get(i).getIdentifyCard().equals(cIC)) {
                 editMain(i);
                 break;
             } else {
@@ -96,7 +96,6 @@ public class CustomerServiceImpl implements IEmployeeService {
     @Override
     public void editMain(int i){
         boolean flag = true;
-        String chooseYNF;
         String typeOfCustomer;
         do {
             System.out.println("MENU EDIT CUSTOMER!");
@@ -115,87 +114,38 @@ public class CustomerServiceImpl implements IEmployeeService {
                 case 0:
                     System.out.println("Enter name to change!");
                     String cName = scanner.nextLine();
-                    customerList.get(i).setName(cName);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setName(cName);
                     break;
                 case 1:
                     System.out.println("Enter date of birth to change");
                     String cDoB = scanner.nextLine();
-                    customerList.get(i).setDateOfBirth(cDoB);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setDateOfBirth(cDoB);
                     break;
                 case 2:
                     System.out.println("Enter gender to change");
                     String cG = scanner.nextLine();
-                    customerList.get(i).setGender(cG);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setGender(cG);
                     break;
 
                 case 3:
                     System.out.println("Enter identify card to change");
                     String cIC = scanner.nextLine();
-                    customerList.get(i).setIdentifyCard(cIC);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setIdentifyCard(cIC);
                     break;
                 case 4:
                     System.out.println("Enter phone number to change");
                     String cPN = scanner.nextLine();
-                    customerList.get(i).setPhoneNumber(cPN);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setPhoneNumber(cPN);
                     break;
                 case 5:
                     System.out.println("Enter email to change");
                     String cE = scanner.nextLine();
-                    customerList.get(i).setEmail(cE);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setEmail(cE);
                     break;
                 case 6:
                     System.out.println("Enter customer id to change");
                     String cID = scanner.nextLine();
-                    customerList.get(i).setCustomerId(cID);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setCustomerId(cID);
                     break;
                 case 7:
                     System.out.println("Choosen type of Customer! ");
@@ -224,29 +174,19 @@ public class CustomerServiceImpl implements IEmployeeService {
                         default:
                             typeOfCustomer = "New Customer";
                     }
-                    customerList.get(i).setTypeOfCustomer(typeOfCustomer);
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setTypeOfCustomer(typeOfCustomer);
                     break;
                 case 8:
                     System.out.println("Enter address to change");
                     String cA = scanner.nextLine();
-                    customerList.get(i).setAddress(cA);
-                    System.out.println("Do you want continue (Y/N)?");
-                    System.out.println("1. Yes to continue eidt customer information (Press Y!)");
-                    System.out.println("2. No to exit programming (Press N!)");
-                    chooseYNF = scanner.nextLine();
-                    if (chooseYNF.equals("n") || chooseYNF.equals("N")) {
-                        flag = false;
-                    }
+                    customerListRW.get(i).setAddress(cA);
                     break;
                 default:
                     flag = false;
             }
         }
         while (flag);
+        ReadAndWriteCSV.writeCustomer(customerListRW,false);
     }
 }
 

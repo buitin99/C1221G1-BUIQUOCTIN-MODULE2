@@ -1,10 +1,8 @@
 package case_study.views;
-import case_study.controllers.Controller;
-import case_study.models.Employee;
+import case_study.controllers.FuramaController;
 
-public class View extends Controller {
+public class View{
     public static void main(String[] args) {
-        displayMainMenu();
+       FuramaController.displayMainMenu();
     }
-
 }

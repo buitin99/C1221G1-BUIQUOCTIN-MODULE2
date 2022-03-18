@@ -66,4 +66,8 @@ public class Employee extends Person{
                 ", salary='" + salary + '\'' +
                 '}';
     }
+
+    public String getInFor(){
+        return this.getName()+","+this.getDateOfBirth()+","+this.getGender()+","+this.getIdentifyCard()+","+this.getPhoneNumber()+","+this.getEmail()+","+this.getEmail()+","+this.employeeID+","+this.degree+","+this.position+","+this.salary;
+    }
 }
