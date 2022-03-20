@@ -12,6 +12,7 @@ public class FuramaController {
         CustomerServiceImpl customerService = new CustomerServiceImpl();
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         boolean flag = true;
+        int chooseMenu = 0;
         do {
             System.out.println("Display Main Menu:\n" +
                     "1. Employee Management\n" +
@@ -21,7 +22,11 @@ public class FuramaController {
                     "5. Promotion Management\n" +
                     "6. Exit\n");
             System.out.print("Select number!");
-            int chooseMenu = Integer.parseInt(scanner.nextLine());
+            try {
+                chooseMenu = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
             switch (chooseMenu) {
                 case 1:
                     System.out.println("Display Emloyee Management!\n" +
@@ -123,6 +128,7 @@ public class FuramaController {
                     }
                     break;
                 default:
+                    displayMainMenu();
                     flag = false;
             }
         } while (flag);
