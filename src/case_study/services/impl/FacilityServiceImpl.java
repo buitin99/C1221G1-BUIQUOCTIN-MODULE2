@@ -31,7 +31,13 @@ public class FacilityServiceImpl implements IFacilityService {
         System.out.println("2. ADD NEW HOUSE!");
         System.out.println("3. ADD NEW ROOM!");
         System.out.println("4. RETURN TO MAIN MENU!");
-        int choose = Integer.parseInt(scanner.nextLine());
+        int choose = 0;
+        try {
+            choose = Integer.parseInt(scanner.nextLine());
+        }catch (NumberFormatException e){
+            System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            add();
+        }
         switch (choose) {
             case 1:
                 addNewVilla();
@@ -81,7 +87,12 @@ public class FacilityServiceImpl implements IFacilityService {
         do {
             System.out.println("Enter area used!");
             vAU = scanner.nextLine();
-            double checkV = Double.parseDouble(vAU);
+            double checkV = 0;
+            try {
+                checkV = Double.parseDouble(vAU);
+            }catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
             if (checkV > 30) {
                 flag = false;
             }
@@ -93,7 +104,12 @@ public class FacilityServiceImpl implements IFacilityService {
         do {
             System.out.println("Enter max number of people!");
             vMax = scanner.nextLine();
-            int checkM = Integer.parseInt(vMax);
+            int checkM = 0;
+            try {
+                checkM = Integer.parseInt(vMax);
+            }catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
             if (checkM > 0 && checkM < 20) {
                 flag2 = false;
             }
@@ -107,7 +123,12 @@ public class FacilityServiceImpl implements IFacilityService {
         do {
             System.out.println("Enter pool area!");
             vPA = scanner.nextLine();
-            double checkPA = Double.parseDouble(vPA);
+            double checkPA = 0.0d;
+            try {
+                checkPA = Double.parseDouble(vPA);
+            }catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
             if (checkPA > 30) {
                 flag1 = false;
             }
@@ -117,7 +138,12 @@ public class FacilityServiceImpl implements IFacilityService {
         do {
             System.out.println("Enter number of floors!");
             vNOF = scanner.nextLine();
-            double checkF = Double.parseDouble(vNOF);
+            double checkF = 0.0d;
+            try {
+                checkF = Double.parseDouble(vNOF);
+            }catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
             if (checkF > 0) {
                 flag3 = false;
             }
@@ -134,20 +160,23 @@ public class FacilityServiceImpl implements IFacilityService {
         String hSC = inputHouse();
         System.out.println("Enter service name!");
         String hSN = inputServiceName();
-        System.out.println("Enter area used!");
         String hAU;
         boolean flag = true;
         do {
             System.out.println("Enter area used!");
             hAU = scanner.nextLine();
-            double checkAU = Double.parseDouble(hAU);
-            if (checkAU > 30) {
+            double checkV = 0;
+            try {
+                checkV = Double.parseDouble(hAU);
+            }catch (NumberFormatException e){
+                System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+            }
+            if (checkV > 30) {
                 flag = false;
             }
         } while (flag);
         System.out.println("Enter rental Fee!");
         String hRF = scanner.nextLine();
-        System.out.println("Enter max number of people!");
         String hMax;
         boolean flag2 = true;
         do {
@@ -185,7 +214,6 @@ public class FacilityServiceImpl implements IFacilityService {
         String rSC = inputRoom();
         System.out.println("Enter service name!");
         String rSN = inputServiceName();
-        System.out.println("Enter area used!");
         String rAU;
         boolean flag = true;
         do {
@@ -198,7 +226,6 @@ public class FacilityServiceImpl implements IFacilityService {
         } while (flag);
         System.out.println("Enter rental Fee!");
         String rRF = scanner.nextLine();
-        System.out.println("Enter max number of people!");
         String rMax;
         boolean flag2 = true;
         do {
@@ -226,12 +253,12 @@ public class FacilityServiceImpl implements IFacilityService {
 
     private String inputRoom() {
         System.out.println("ENTER ROOM SERVICE ");
-        return RegexData.regexStr(scanner.nextLine(), REG_VL, "WRONG SERVICE ROOM : SVRO-NNNN. EX SVRO-1234!");
+        return RegexData.regexStr(scanner.nextLine(), REG_RO, "WRONG SERVICE ROOM : SVRO-NNNN. EX SVRO-1234!");
     }
 
     private String inputHouse() {
         System.out.println("ENTER HOUSE SERVICE ");
-        return RegexData.regexStr(scanner.nextLine(), REG_VL, "WRONG SERVICE ROOM : SVHO-NNNN. EX SVHO-1234!");
+        return RegexData.regexStr(scanner.nextLine(), REG_HO, "WRONG SERVICE ROOM : SVHO-NNNN. EX SVHO-1234!");
     }
 
     private String inputServiceName() {

@@ -35,7 +35,12 @@ public class FuramaController {
                             "3. Edit employee\n" +
                             "4. Return main menu\n");
                     System.out.println("Select number!");
-                    int chooseMenu1 = Integer.parseInt(scanner.nextLine());
+                    int chooseMenu1 = 0;
+                    try {
+                       chooseMenu1 = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+                    }
                     switch (chooseMenu1) {
                         case 1:
                             System.out.println("Display list employees");
@@ -58,7 +63,12 @@ public class FuramaController {
                             "3. Edit customers\n" +
                             "4. Return main menu\n");
                     System.out.println("Select number!");
-                    int chooseMenu2 = Integer.parseInt(scanner.nextLine());
+                    int chooseMenu2 = 0;
+                    try {
+                        chooseMenu2 = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+                    }
                     switch (chooseMenu2) {
                         case 1:
                             System.out.println("Display list customers");
@@ -80,7 +90,12 @@ public class FuramaController {
                             "2. Add new facility\n" +
                             "3. Display list facility maintain\n" +
                             "4. Return main menu");
-                    int chooseMenu3 = Integer.parseInt(scanner.nextLine());
+                    int chooseMenu3 = 0;
+                    try {
+                        chooseMenu3 = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+                    }
                     switch (chooseMenu3) {
                         case 1:
                             facilityService.display();
@@ -100,7 +115,12 @@ public class FuramaController {
                             "4. Display list constracts\n" +
                             "5. Edit constracts\n" +
                             "6. Return main menu");
-                    int chooseMenu4 = Integer.parseInt(scanner.nextLine());
+                    int chooseMenu4 = 0;
+                    try {
+                        chooseMenu4 = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+                    }
                     switch (chooseMenu4) {
                         case 1:
                             break;
@@ -119,7 +139,12 @@ public class FuramaController {
                             "1. Display list customers use service\n" +
                             "2. Display list customers get voucher\n" +
                             "3. Return main menu");
-                    int chooseMenu5 = Integer.parseInt(scanner.nextLine());
+                    int chooseMenu5 = 0;
+                    try {
+                        chooseMenu5 = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("WRONG NUMBER. PLEASE ENTER RIGHT NUMBMER!");
+                    }
                     switch (chooseMenu5) {
                         case 1:
                             break;
