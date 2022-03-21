@@ -191,7 +191,6 @@ public class FacilityServiceImpl implements IFacilityService {
         String hTOR = scanner.nextLine();
         System.out.println("Enter room standard!");
         String hRS = scanner.nextLine();
-        System.out.println("Enter number of floors!");
         String hNOF;
         boolean flag3 = true;
         do {

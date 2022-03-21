@@ -9,17 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements IEmployeeService {
-    private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static List<Customer> customerListRW = ReadAndWriteCSV.readCustomerListFromCSV();
-
-
-//    static {
-//        customerList.add(new Customer("châu bùi","1","nữ","112","0984384933","chaubui@gmail.com","a1233","Diamond","đà nẵng"));
-//        customerList.add(new Customer("phan an","3","nam","114","0123824422","phânn@gmail.com","g1221","Platinium","quảng nam"));
-//        customerList.add(new Customer("hoàng long","6","nam","110","0383829112","hoanglong@gmail.com","a9876","Gold","hà nội"));
-//        ReadAndWriteCSV.writeCustomer(customerList,true);
-//    }
 
     @Override
     public void add(){
@@ -66,7 +57,7 @@ public class CustomerServiceImpl implements IEmployeeService {
         }
         System.out.println("Enter address customer!");
         String address = scanner.nextLine();
-        customerList.add(new Customer(name,doB,gender,identifyCard,phoneNumber,email,customerId,typeOfCustomer,address));
+        customerListRW.add(new Customer(name,doB,gender,identifyCard,phoneNumber,email,customerId,typeOfCustomer,address));
         System.out.println("Add customer succes!");
         ReadAndWriteCSV.writeCustomer(customerListRW,true);
 
@@ -89,6 +80,7 @@ public class CustomerServiceImpl implements IEmployeeService {
                 break;
             } else {
                 System.out.println("Not found customer!");
+                break;
             }
         }
 

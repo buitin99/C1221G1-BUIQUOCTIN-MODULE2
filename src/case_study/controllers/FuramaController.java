@@ -153,7 +153,6 @@ public class FuramaController {
                     }
                     break;
                 default:
-                    displayMainMenu();
                     flag = false;
             }
         } while (flag);
