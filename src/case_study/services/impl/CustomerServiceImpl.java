@@ -80,7 +80,6 @@ public class CustomerServiceImpl implements IEmployeeService {
                 break;
             } else {
                 System.out.println("Not found customer!");
-                break;
             }
         }
 

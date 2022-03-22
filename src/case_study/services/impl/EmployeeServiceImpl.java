@@ -112,7 +112,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 break;
             } else {
                 System.out.println("Not found employee!");
-                break;
             }
         }
     }
