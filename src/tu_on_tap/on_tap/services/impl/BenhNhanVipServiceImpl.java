@@ -1,5 +1,6 @@
 package tu_on_tap.on_tap.services.impl;
 
+import tu_on_tap.on_tap.models.BenhNhan;
 import tu_on_tap.on_tap.models.BenhNhanThuong;
 import tu_on_tap.on_tap.models.BenhNhanVip;
 import tu_on_tap.on_tap.services.IBenhNhanVip;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 public class BenhNhanVipServiceImpl implements IBenhNhanVip {
     private static Scanner scanner = new Scanner(System.in);
-    List<BenhNhanVip> benhNhanVipList = ReadAndWriteCSV.readBenhNhanVipListFromCSV();
+    List<BenhNhan> benhNhanVipList = ReadAndWriteCSV.readBenhNhanVipListFromCSV();
 
     @Override
     public void add() {
@@ -26,23 +27,27 @@ public class BenhNhanVipServiceImpl implements IBenhNhanVip {
         String ngayRaVien = scanner.nextLine();
         System.out.println("Nhập loại vip!");
         String loai = scanner.nextLine();
-        benhNhanVipList.add(new BenhNhanVip(id(),maBenhAn, maBenhNhan, tenBenhVien, ngayNhapVien, ngayRaVien, loai));
-        ReadAndWriteCSV.writeBenhNhanVip(benhNhanVipList, false);
+        List<BenhNhan> listWriteFile = new ArrayList<>();
+
+        benhNhanVipList.add(new BenhNhanVip(id(), maBenhAn, maBenhNhan, tenBenhVien, ngayNhapVien, ngayRaVien, loai));
+
+        listWriteFile.add(new BenhNhanVip(id(), maBenhAn, maBenhNhan, tenBenhVien, ngayNhapVien, ngayRaVien, loai));
+
+        ReadAndWriteCSV.writeBenhNhanVip(listWriteFile, true);
     }
 
     @Override
     public void delete() {
         display();
-        for (int i = 0; i < benhNhanVipList.size() ; i++) {
-            if (benhNhanVipList.get(i) instanceof BenhNhanVip){
+        for (int i = 0; i < benhNhanVipList.size(); i++) {
+            if (benhNhanVipList.get(i) instanceof BenhNhanVip) {
                 String check;
                 System.out.println("Y. chọn Y để xóa bệnh án!");
                 System.out.println("N. chọn n để thoát!");
                 check = scanner.nextLine();
-                if ("y".equals(check) || "Y".equals(check)){
+                if ("y".equals(check) || "Y".equals(check)) {
                     benhNhanVipList.remove(i);
-                }else
-                {
+                } else {
                     break;
                 }
             }
@@ -51,30 +56,34 @@ public class BenhNhanVipServiceImpl implements IBenhNhanVip {
 
     @Override
     public void display() {
-        for (int i = 0; i < benhNhanVipList.size() ; i++) {
-            if (benhNhanVipList.get(i) instanceof BenhNhanVip){
-                System.out.println(benhNhanVipList.get(i).toString());
-            }
+        for (int i = 0; i < benhNhanVipList.size(); i++) {
+            System.out.println(benhNhanVipList.get(i).toString());
+
+//            if (benhNhanVipList.get(i) instanceof BenhNhanVip){
+//                System.out.println(benhNhanVipList.get(i).toString());
+//            }
         }
     }
 
     @Override
-    public int id(){
+    public int id() {
         int i = 1;
-        int index = benhNhanVipList.size()-1;
-        if (!benhNhanVipList.isEmpty()){
-            i = benhNhanVipList.get(index).getSoThuTuBenhAn()+1;
+        int index = benhNhanVipList.size() - 1;
+        if (!benhNhanVipList.isEmpty()) {
+            i = benhNhanVipList.get(index).getSoThuTuBenhAn() + 1;
         }
         return i;
     }
 
     public static final String REG_BA = "^BA-\\d{4}$";
+
     private String inputBA() {
         System.out.println("Nhập mã bệnh án!");
         return Regex.regexStr(scanner.nextLine(), REG_BA, "SAI ĐỊNH DẠNG : BA-NNNN. EX BA-1234!");
     }
 
     public static final String REG_BN = "^BN-\\d{4}$";
+
     private String inputBN() {
         System.out.println("Nhập mã bệnh nhân!");
         return Regex.regexStr(scanner.nextLine(), REG_BN, "SAI ĐỊNH DẠNG : BN-NNNN. EX BN-1234!");

@@ -25,7 +25,7 @@ public class BenhNhanVip extends BenhNhan {
                 "loaiVip='" + loaiVip + '\'' +
                 '}';
     }
-    public String benhNhanVipGetInFo(){
+    public String getInFoToCSV(){
         return super.getInFoToCSV()+loaiVip;
     }
 }

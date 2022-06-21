@@ -1,0 +1,165 @@
+{
+  "carCustomer": [
+    {
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 1
+    },
+    {
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 2
+    },
+    {
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 3
+    },
+    {
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 4
+    },
+    {
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 5
+    },{
+      "licensePlates": "1221",
+      "email": "mailinh@gmail.com",
+      "phone": "0935845632",
+      "type": {
+        "id": 1,
+        "name": "Giường nằm"
+      },
+      "name": "Mai Linh",
+      "departure": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "destination": {
+        "id": 2,
+        "name": "Huế"
+      },
+      "startTime": "13:20",
+      "endTime": "13:20",
+      "id": 6
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Huế"
+    },
+    {
+      "id": 3,
+      "name": "Quảng Trị"
+    },
+    {
+      "id": 4,
+      "name": "Sài Gòn"
+    },
+    {
+      "id": 5,
+      "name": "Hà Nội"
+    },
+    {
+      "id": 6,
+      "name": "Hà Tĩnh"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "Giường nằm"
+    },
+    {
+      "id": 2,
+      "name": "Giường ngồi"
+    }
+  ]
+}

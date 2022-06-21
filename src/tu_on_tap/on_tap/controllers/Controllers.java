@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Number;
 import com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer;
 import tu_on_tap.on_tap.services.impl.BenhNhanThuongServiceImpl;
 import tu_on_tap.on_tap.services.impl.BenhNhanVipServiceImpl;
+import tu_on_tap.on_tap.utils.NotFoundMedicalRecordException;
 
 import java.util.Scanner;
 
@@ -99,7 +100,11 @@ public class Controllers {
         switch (choice) {
             case 1:
                 System.out.println("Xóa bệnh nhân thường!");
-                benhNhanThuongService.delete();
+                try {
+                    benhNhanThuongService.delete();
+                } catch (NotFoundMedicalRecordException e) {
+                    System.out.println(e.getMessage());;
+                }
                 break;
             case 2:
                 System.out.println("Xóa bệnh nhân vip!");

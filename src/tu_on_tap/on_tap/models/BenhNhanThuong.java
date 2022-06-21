@@ -1,27 +1,27 @@
 package tu_on_tap.on_tap.models;
 
 public class BenhNhanThuong extends BenhNhan{
-    private String phiRaVien;
+    private double phiRaVien;
 
     public BenhNhanThuong() {
     }
 
-    public BenhNhanThuong(int soThuTuBenhAn, String maBenhAn, String tenBenhNhan, String ngayNhapVien, String ngayRaVien, String lyDoRaVien, String phiRaVien) {
+    public BenhNhanThuong(int soThuTuBenhAn, String maBenhAn, String tenBenhNhan, String ngayNhapVien, String ngayRaVien, String lyDoRaVien, double phiRaVien) {
         super(soThuTuBenhAn, maBenhAn, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoRaVien);
         this.phiRaVien = phiRaVien;
     }
 
-
-    public BenhNhanThuong(String phiRaVien) {
+    public BenhNhanThuong(double phiRaVien) {
         this.phiRaVien = phiRaVien;
     }
 
 
-    public String getPhiRaVien() {
+
+    public double getPhiRaVien() {
         return phiRaVien;
     }
 
-    public void setPhiRaVien(String phiRaVien) {
+    public void setPhiRaVien(double phiRaVien) {
         this.phiRaVien = phiRaVien;
     }
 
@@ -32,7 +32,7 @@ public class BenhNhanThuong extends BenhNhan{
                 '}';
     }
 
-    public String benhNhanThuonggetInFo(){
+    public String getInFoToCSV(){
         return super.getInFoToCSV()+phiRaVien;
     }
 }

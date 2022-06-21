@@ -6,6 +6,7 @@ import tu_on_tap.on_tap.models.BenhNhanThuong;
 import tu_on_tap.on_tap.models.BenhNhanVip;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,6 @@ public class ReadAndWriteCSV {
             }
             bufferedReader.close();
             fileReader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,46 +53,56 @@ public class ReadAndWriteCSV {
     }
 
 
-    public static void writeBenhNhanThuong(List<BenhNhanThuong> benhNhanThuongList, boolean append){
+    public static void writeBenhNhanThuong(List<BenhNhan> benhNhanThuongList, boolean append){
         List<String> benhNhanThuongs = new ArrayList<>();
-        for (BenhNhanThuong b: benhNhanThuongList){
-            benhNhanThuongs.add(b.benhNhanThuonggetInFo());
+        for (BenhNhan b: benhNhanThuongList){
+            benhNhanThuongs.add(b.getInFoToCSV());
         }
         writeListStringToCSV(BENH_NHAN_FILE,benhNhanThuongs,append);
     }
 
-        public static List<BenhNhanThuong> readBenhNhanThuongListFromCSV(){
-        List<BenhNhanThuong> benhNhanThuongList = new ArrayList<>();
+        public static List<BenhNhan> readBenhNhanThuongListFromCSV(){
+        List<BenhNhan> benhNhanThuongList = new ArrayList<>();
         // sử dụng phương thức dùng chung trả về một list dạng String
         List<String> stringList = readListStringFromCSV(BENH_NHAN_FILE);
         String[] arr =null;
         // Chuyển đổi list String về list Customer
         for (String string: stringList) {
             arr= string.split(",");
-            BenhNhanThuong benhNhanThuong = new BenhNhanThuong(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],arr[4],arr[5],arr[6]);
-            benhNhanThuongList.add(benhNhanThuong);
+            try{
+                BenhNhanThuong benhNhanThuong = new BenhNhanThuong(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],arr[4],arr[5],Double.parseDouble(arr[6]));
+                benhNhanThuongList.add(benhNhanThuong);
+            }catch (Exception e){
+
+            }
+
         }
         return benhNhanThuongList;
     }
 
-    public static void writeBenhNhanVip(List<BenhNhanVip> benhNhanVipList, boolean append){
+    public static void writeBenhNhanVip(List<BenhNhan> benhNhanVipList, boolean append){
         List<String> benhNhanVips = new ArrayList<>();
-        for (BenhNhanVip v: benhNhanVipList){
-            benhNhanVips.add(v.benhNhanVipGetInFo());
+        for (BenhNhan v: benhNhanVipList){
+            benhNhanVips.add(v.getInFoToCSV());
         }
         writeListStringToCSV(BENH_NHAN_FILE,benhNhanVips,append);
     }
 
-    public static List<BenhNhanVip> readBenhNhanVipListFromCSV(){
-        List<BenhNhanVip> benhNhanVipList = new ArrayList<>();
+    public static List<BenhNhan> readBenhNhanVipListFromCSV(){
+        List<BenhNhan> benhNhanVipList = new ArrayList<>();
         // sử dụng phương thức dùng chung trả về một list dạng String
         List<String> stringList = readListStringFromCSV(BENH_NHAN_FILE);
         String[] arr =null;
         // Chuyển đổi list String về list Customer
         for (String string: stringList) {
             arr= string.split(",");
-            BenhNhanVip benhNhanVip = new BenhNhanVip(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],arr[4],arr[5],arr[6]);
-            benhNhanVipList.add(benhNhanVip);
+            try {
+                double temp =Double.parseDouble( arr[6]);
+            }catch (Exception e){
+                BenhNhanVip benhNhanVip = new BenhNhanVip(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3],arr[4],arr[5],arr[6]);
+                benhNhanVipList.add(benhNhanVip);
+            }
+
         }
         return benhNhanVipList;
     }
