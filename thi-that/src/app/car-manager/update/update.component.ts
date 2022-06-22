@@ -22,14 +22,17 @@ export class UpdateComponent implements OnInit {
               private carService: CarService,
               private typeService: TypeService,
               private cityService: CityService) {
-    this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) =>
-      this.id = +paramMap.get('id'));
-    const cars = this.getInfo(this.id);
+
   }
 
   ngOnInit(): void {
+    this.typeService.getAll();
     this.getCity();
-    this.getType();
+
+    this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) =>
+      this.id = +paramMap.get('id'));
+    console.log(this.id);
+    const cars = this.getInfo(this.id);
   }
 
   private getType() {
@@ -46,23 +49,25 @@ export class UpdateComponent implements OnInit {
 
   private getInfo(id: number) {
     return this.carService.findById(id).subscribe(cars => {
+      console.log(cars);
       this.editForm = new FormGroup({
-        licensePlates: new FormControl(cars.licensePlates, [Validators.required]),
-        email: new FormControl(cars.email, [Validators.required, Validators.email]),
-        phone: new FormControl(cars.phone, [Validators.required, Validators.pattern(/^(090|093|097)\d{7}$/)]),
-        type: new FormControl(cars.type.name, [Validators.required]),
-        name: new FormControl(cars.name, [Validators.required]),
-        departure: new FormControl(cars.departure.name, [Validators.required]),
-        destination: new FormControl(cars.destination.name, [Validators.required]),
-        startTime: new FormControl(cars.startTime, [Validators.required]),
-        endTime: new FormControl(cars.endTime, [Validators.required])
+        licensePlates: new FormControl(cars.licensePlates),
+        email: new FormControl(cars.email, [ Validators.email]),
+        phone: new FormControl(cars.phone, [Validators.pattern(/^(090|093|097)\d{7}$/)]),
+        type: new FormControl(cars.type),
+        name: new FormControl(cars.name),
+        departure: new FormControl(cars.departure),
+        destination: new FormControl(cars.destination),
+        startTime: new FormControl(cars.startTime),
+        endTime: new FormControl(cars.endTime)
       });
     })
   }
 
   updateInfo(id: number) {
     const cars = this.editForm.value;
-    if (this.editForm.valid) {
+    console.log(cars);
+    // if (this.editForm.valid) {
       this.carService.updateInfo(id, cars).subscribe(() => {
         alert('Cập nhật thành công');
         this.ngOnInit();
@@ -72,6 +77,10 @@ export class UpdateComponent implements OnInit {
       }, () => {
         this.ngOnInit();
       })
-    }
+    // }
+  }
+
+  equals = (item1, item2) => {
+    return item1 && item2 && item1.id === item2.id;
   }
 }

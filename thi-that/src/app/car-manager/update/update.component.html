@@ -9,9 +9,9 @@
         <div class="form-outline mb-3">
           <label class="form-label" for="form1Example1">Name</label>
           <input type="text" id="form1Example1" class="form-control" formControlName="name"/>
-          <p style="color: red"
-             *ngIf="editForm.controls.name.hasError('required') && editForm.controls.name.touched">
-            Tên nhà xe không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.name.hasError('required') && editForm.controls.name.touched">-->
+<!--            Tên nhà xe không được để trống</p>-->
         </div>
 
         <!-- Type input -->
@@ -21,9 +21,9 @@
             <option disabled selected value="">Select</option>
             <option [ngValue]="type" *ngFor="let type of types">{{type.name}}</option>
           </select>
-          <p style="color: red"
-             *ngIf="editForm.controls.type.hasError('required') && editForm.controls.type.touched">
-            Loại xe không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.type.hasError('required') && editForm.controls.type.touched">-->
+<!--            Loại xe không được để trống</p>-->
         </div>
 
         <!-- From input -->
@@ -33,31 +33,30 @@
             <option disabled selected value="">Select</option>
             <option [ngValue]="type" *ngFor="let type of cities">{{type.name}}</option>
           </select>
-          <p style="color: red"
-             *ngIf="editForm.controls.departure.hasError('required') && editForm.controls.departure.touched">
-            Điểm đi không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.departure.hasError('required') && editForm.controls.departure.touched">-->
+<!--            Điểm đi không được để trống</p>-->
         </div>
 
         <!-- To input -->
         <div class="form-outline mb-3">
           <label class="form-label" for="form1Example4">To</label>
-          <select class="form-control" formControlName="destination" id="form1Example4">
+          <select class="form-control" formControlName="destination" id="form1Example4" [compareWith]="equals">
             <option disabled selected value="">Select</option>
             <option [ngValue]="type" *ngFor="let type of cities">{{type.name}}</option>
           </select>
-          <p style="color: red"
-             *ngIf="editForm.controls.destination.hasError('required') && editForm.controls.destination.touched">
-            Điểm đến không được để trống</p>
-
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.destination.hasError('required') && editForm.controls.destination.touched">-->
+<!--            Điểm đến không được để trống</p>-->
         </div>
 
         <!-- Phone input -->
         <div class="form-outline mb-3">
           <label class="form-label" for="form1Example5">Phone</label>
           <input type="text" id="form1Example5" class="form-control" formControlName="phone"/>
-          <p style="color: red"
-             *ngIf="editForm.controls.phone.hasError('required') && editForm.controls.phone.touched">
-            Số điện thoại không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.phone.hasError('required') && editForm.controls.phone.touched">-->
+<!--            Số điện thoại không được để trống</p>-->
         </div>
 
         <!-- Email input -->
@@ -67,26 +66,26 @@
           <p style="color: red"
              *ngIf="editForm.controls.email.hasError('required') && editForm.controls.email.touched">
             Email không được để trống</p>
-          <p style="color: red" *ngIf="editForm.controls.email.hasError('email') && editForm.controls.email.touched">
-            Nhập sai định dạng email</p>
+<!--          <p style="color: red" *ngIf="editForm.controls.email.hasError('email') && editForm.controls.email.touched">-->
+<!--            Nhập sai định dạng email</p>-->
         </div>
 
         <!-- Start input -->
         <div class="form-outline mb-3">
           <label class="form-label" for="form1Example7">Start</label>
           <input type="time" id="form1Example7" class="form-control" formControlName="startTime"/>
-          <p style="color: red"
-             *ngIf="editForm.controls.startTime.hasError('required') && editForm.controls.startTime.touched">
-            Thời gian đi không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.startTime.hasError('required') && editForm.controls.startTime.touched">-->
+<!--            Thời gian đi không được để trống</p>-->
         </div>
 
         <!-- End input -->
         <div class="form-outline mb-3">
           <label class="form-label" for="form1Example8">End</label>
           <input type="time" id="form1Example8" class="form-control" formControlName="endTime"/>
-          <p style="color: red"
-             *ngIf="editForm.controls.endTime.hasError('required') && editForm.controls.endTime.touched">
-            Thời gian đến không được để trống</p>
+<!--          <p style="color: red"-->
+<!--             *ngIf="editForm.controls.endTime.hasError('required') && editForm.controls.endTime.touched">-->
+<!--            Thời gian đến không được để trống</p>-->
         </div>
         <br>
 

@@ -20,7 +20,9 @@ export class ListComponent implements OnInit {
 
   getAll() {
     this.carService.getAll().subscribe(cars => {
-      this.car = cars;
+      this.car = cars['content'];
+      console.log(this.car)
+
     });
   }
 

@@ -14,15 +14,19 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Car[]> {
-    return this.http.get<Car[]>(API_URL + '/carCustomer');
+    return this.http.get<Car[]>(API_URL + '/carCustomer/list');
   }
 
+
   findById(id: number): Observable<Car> {
-    return this.http.get<Car>(`${API_URL}/carCustomer/${id}`);
+    // return this.http.get<Car>(`${API_URL}/carCustomer/findById/${id}`);
+    console.log(id);
+    return this.http.get<Car>(`http://localhost:8080/carCustomer/findById/${id}`);
+
   }
 
   updateInfo(id: number, cars: Car): Observable<Car> {
-    return this.http.put<Car>(`${API_URL}/carCustomer/${id}`, cars);
+    return this.http.patch<Car>(`http://localhost:8080/carCustomer/update/${id}`, cars);
   }
 
   delete(id: number) {

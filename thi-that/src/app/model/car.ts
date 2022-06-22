@@ -3,7 +3,7 @@ import {Type} from "./type";
 
 export interface Car {
   id: number;
-  licensePlates: string;
+  licensePlates: number;
   name: string;
   departure: City;
   destination: City;
