@@ -7,6 +7,8 @@ export interface Car {
   name: string;
   departure: City;
   destination: City;
+  // cityDeparture: City;
+  // cityDestination: City;
   phone: string;
   email: string;
   startTime: string;

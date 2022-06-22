@@ -15,6 +15,6 @@ export class TypeService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Type[]> {
-    return this.http.get<Type[]>(API_URL + 'types/list');
+    return this.http.get<Type[]>('http://localhost:8080/types/list');
   }
 }

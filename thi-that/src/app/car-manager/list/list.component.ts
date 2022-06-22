@@ -21,8 +21,6 @@ export class ListComponent implements OnInit {
   getAll() {
     this.carService.getAll().subscribe(cars => {
       this.car = cars['content'];
-      console.log(this.car)
-
     });
   }
 
@@ -31,7 +29,8 @@ export class ListComponent implements OnInit {
 
   deleteModal() {
     this.carService.delete(this.id).subscribe(() => {
-      this.router.navigateByUrl('/list');
+      // this.router.navigateByUrl('/list');
+      alert("Delete Success!");
     }, error => {
       console.log(error);
     });

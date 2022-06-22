@@ -17,6 +17,8 @@ export class UpdateComponent implements OnInit {
   id: number;
   types: Type[] = [];
   cities: City[] = [];
+
+
   constructor(private activatedRouter: ActivatedRoute,
               private router: Router,
               private carService: CarService,
@@ -28,6 +30,7 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
     this.typeService.getAll();
     this.getCity();
+    this.getType();
 
     this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) =>
       this.id = +paramMap.get('id'));
@@ -71,7 +74,7 @@ export class UpdateComponent implements OnInit {
       this.carService.updateInfo(id, cars).subscribe(() => {
         alert('Cập nhật thành công');
         this.ngOnInit();
-        this.router.navigateByUrl('/list');
+        // this.router.navigateByUrl('/list');
       }, error => {
         console.log(error);
       }, () => {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {City} from "../model/city";
 import {Observable} from "rxjs";
@@ -14,7 +14,12 @@ export class CityService {
 
   constructor(private http: HttpClient) { }
 
+
   getAll(): Observable<City[]> {
-    return this.http.get<City[]>(API_URL + 'city/list');
+    return this.http.get<City[]>( 'http://localhost:8080/city/list');
   }
+
+
+
+
 }
